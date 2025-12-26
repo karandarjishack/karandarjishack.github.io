@@ -1,108 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karan Darji | Cybersecurity Professional</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ========= Global ========= */
+    :root{
+      --bg: #06080b;
+      --bg2:#0b0f16;
+      --card:#0c111a;
+      --border:#1f2a3a;
+      --text:#e7eefc;
+      --muted:#9bb0cc;
+      --neon:#00e5ff;
+      --neon2:#19ff9a;
+      --shadow: 0 0 24px rgba(0, 229, 255, .12);
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0a0a0a;
-      color: #f0f0f0;
+      font-family: "Times New Roman", Times, serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(0,229,255,.10), transparent 60%),
+                  radial-gradient(1000px 600px at 85% 20%, rgba(25,255,154,.08), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      overflow-x: hidden;
     }
+
+    a { color: var(--neon); text-decoration: none; }
+    a:hover { color: #fff; }
+
+    /* ========= Header ========= */
     header {
-      background: linear-gradient(90deg, #000, #111);
-      padding: 2rem 1rem;
+      position: relative;
+      padding: 2.25rem 1rem 1.5rem 1rem;
       text-align: center;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(90deg, rgba(0,229,255,.08), transparent 35%),
+        linear-gradient(270deg, rgba(25,255,154,.06), transparent 35%),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
     }
-    header h1 {
-      font-size: 2.5rem;
-      color: #0ef;
+    header::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        repeating-linear-gradient(90deg, rgba(0,229,255,.08) 0 1px, transparent 1px 110px),
+        repeating-linear-gradient(0deg, rgba(0,229,255,.05) 0 1px, transparent 1px 70px);
+      opacity:.25;
+      pointer-events:none;
+      mask-image: radial-gradient(circle at 50% 30%, black 0 55%, transparent 75%);
     }
-    header p {
-      font-size: 1.2rem;
-      color: #888;
+
+    .name {
+      font-size: 2.55rem;
+      letter-spacing: 0.5px;
+      color: var(--neon);
+      text-shadow: 0 0 18px rgba(0,229,255,.25);
     }
-    nav {
+    .subtitle {
+      margin-top: .5rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .quick-links {
       margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: .8rem;
+      flex-wrap: wrap;
     }
+    .ql {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem .75rem;
+      background: rgba(12,17,26,.7);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      color: var(--text);
+      font-size: .95rem;
+    }
+    .ql i { color: var(--neon); }
+
+    nav { margin-top: 1.2rem; }
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
     }
     nav a {
-      color: #0ef;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      color: var(--neon);
+      font-weight: 700;
+      padding: .35rem .6rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all .2s ease;
     }
     nav a:hover {
       color: #fff;
+      border-color: rgba(0,229,255,.35);
+      background: rgba(0,229,255,.08);
     }
+
+    /* ========= Layout ========= */
+    main { padding-bottom: 2rem; }
     section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
+      padding: 3rem 1.5rem;
+      max-width: 1120px;
       margin: auto;
     }
+
     h2 {
-      color: #0ef;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #0ef;
       display: inline-block;
-      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: .35rem;
+      border-bottom: 2px solid rgba(0,229,255,.55);
+      color: var(--neon);
+      letter-spacing: .25px;
     }
+
+    .card {
+      background: linear-gradient(180deg, rgba(12,17,26,.86), rgba(10,15,23,.86));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    @media (max-width: 860px){
+      .grid-2 { grid-template-columns: 1fr; }
+      .name { font-size: 2.1rem; }
+    }
+
+    .muted { color: var(--muted); }
+    .lead { line-height: 1.75; font-size: 1.05rem; }
+
+    /* ========= Skills / Tools ========= */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: .85rem;
+      margin-top: .9rem;
     }
     .skills-grid span {
-      background: #111;
-      padding: 1rem;
-      border: 1px solid #333;
+      background: rgba(10,15,23,.85);
+      padding: .9rem .75rem;
+      border: 1px solid rgba(31,42,58,.9);
       text-align: center;
-      border-radius: 8px;
-      color: #0ef;
-      font-weight: bold;
-      box-shadow: 0 0 10px #0ef55a33;
+      border-radius: 12px;
+      color: var(--neon);
+      font-weight: 700;
+      box-shadow: 0 0 16px rgba(0,229,255,.10);
     }
-    .job ul, .cert-list, .edu-list {
-      list-style-type: disc;
-      margin-left: 1.5rem;
+
+    /* ========= Experience ========= */
+    .job { margin-top: 1.2rem; }
+    .job h3 { color: #dff7ff; font-size: 1.25rem; }
+    .job p { margin-top: .35rem; color: var(--muted); }
+    .job em { color: #b9d5ff; }
+    .job ul { margin-top: .85rem; margin-left: 1.3rem; line-height: 1.8; }
+    .job li { margin-bottom: .35rem; }
+
+    /* ========= Pills ========= */
+    .pill-wrap { margin-top: .8rem; }
+    .pill {
+      display: inline-block;
+      padding: .35rem .65rem;
+      border: 1px solid rgba(31,42,58,.95);
+      border-radius: 999px;
+      background: rgba(12,17,26,.75);
+      color: var(--neon);
+      font-size: .95rem;
+      margin: .25rem .25rem 0 0;
+      box-shadow: 0 0 16px rgba(0,229,255,.10);
     }
-    .contact-info a {
-      color: #0ef;
-      text-decoration: none;
-    }
+
+    /* ========= Footer ========= */
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #111;
-      font-size: 0.9rem;
-      color: #777;
+      padding: 1.25rem 1rem;
+      border-top: 1px solid var(--border);
+      background: rgba(8,10,14,.65);
+      color: #7f96b3;
+      font-size: .95rem;
     }
+
+    /* ========= Cursor ========= */
+    .cursor { color: var(--neon2); margin-left: 2px; }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Karan Darji</h1>
-    <p><span id="typing"></span></p>
+    <div class="name">Karan Darji</div>
+    <div class="subtitle"><span id="typing"></span></div>
+
+    <!-- Website button removed -->
+    <div class="quick-links" aria-label="Quick links">
+      <a class="ql" href="https://www.linkedin.com/in/karandarji18/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a class="ql" href="https://github.com/karandarjishack" target="_blank" rel="noopener">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a class="ql" href="mailto:karandarji18@gmail.com">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
+    </div>
+
     <nav>
       <ul>
         <li><a href="#summary">Summary</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#tools">Tools</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#honors-certifications">Certifications</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -111,239 +241,350 @@
   </header>
 
   <main>
-    
-<section id="summary" style="margin-bottom: 3rem;">
-  <h2>Professional Summary</h2>
-  <p style="line-height: 1.7; margin-top: 1rem;">
-    Results-driven Cybersecurity Professional with proven expertise in vulnerability assessment, threat detection, and incident response. Skilled in VAPT, XDR, EDR, DLP, SIEM, SOAR, Email, Cloud, and Web Security. Proficient with Microsoft Defender, CrowdStrike, JAMF, Palo Alto Cortex, and Splunk. Experienced with ISO, NIST, OWASP, and MITRE ATT&CK frameworks. Demonstrated success in scripting (Python, Bash, PowerShell), automation, and process optimization across macOS, Windows, and Linux. Credited with CVEs and known for AI/MFA exploitation and threat reduction strategies.
-  </p>
-</section>
-
-
-    
-
-<section id="skills" style="margin-bottom: 3rem;">
-  <h2>Skills & Certifications</h2>
-  <div style="display: flex; flex-direction: column; gap: 2rem;">
-    
-    <div>
-      <h3 style="color: #0ef;">Technologies and Tools</h3>
-      <div class="skills-grid">
-        <span>VAPT</span><span>EDR</span><span>XDR</span><span>DLP</span>
-        <span>MDM</span><span>Email Security</span><span>Endpoint Security</span><span>Web Security</span>
-        <span>Cloud Security</span><span>SIEM</span><span>SOAR</span><span>Nuclei</span>
-        <span>Shodan</span><span>Burp Suite</span><span>ZAP</span><span>Rapid7</span>
-        <span>Nessus</span><span>NMAP</span><span>Metasploit</span><span>AWS</span>
+    <!-- SUMMARY -->
+    <section id="summary">
+      <h2>Professional Summary</h2>
+      <div class="card">
+        <p class="lead">
+          Cybersecurity Architect with hands-on experience across enterprise security engineering, incident response,
+          SIEM/SOAR, endpoint hardening, and vulnerability management. Strong in Microsoft security ecosystem
+          (Defender for Endpoint, Intune, Purview, Sentinel, Azure/Entra ID), CrowdStrike, Splunk, Qualys, Jamf,
+          and security automation. Experienced with MITRE ATT&CK, OWASP (Web/LLM), NIST/ISO-aligned controls,
+          and compliance frameworks including GDPR, SOC 2, and PCI DSS.
+        </p>
+        <p class="lead muted" style="margin-top:.9rem;">
+          Notable: MFA security research, critical AI findings, SEC.gov vulnerability reporting, and 4 CVEs.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <div>
-      <h3 style="color: #0ef;">Programming, Scripting & OS</h3>
-      <div class="skills-grid">
-        <span>Python</span><span>Bash</span><span>PowerShell</span><span>SQL</span>
-        <span>KQL</span><span>Mac</span><span>Windows</span><span>Linux</span>
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--neon); margin-bottom:.6rem;">Security Architecture & Hardening (Microsoft + Endpoint)</h3>
+          <ul style="padding-left:1.2rem; line-height:1.85;">
+            <li>Intune baseline design + rollout at scale (Windows/iPad/mobile), compliance enforcement, and hardening via Settings Catalog + OMA-URI.</li>
+            <li>Defender for Endpoint rollout + tuning (AV/EDR) and investigation support using Advanced Hunting (KQL).</li>
+            <li>Zero Trust implementation support: Conditional Access alignment, identity hardening, posture uplift, and Secure Score improvements.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color:var(--neon); margin-bottom:.6rem;">SIEM/SOC Engineering (Splunk + Telemetry Unification)</h3>
+          <ul style="padding-left:1.2rem; line-height:1.85;">
+            <li>Splunk dashboards that unify telemetry from Defender, CrowdStrike, Intune, and web filtering sources for faster investigations.</li>
+            <li>Correlation + alerting (“One-Stop Incident View” style) to reduce triage time and improve SOC efficiency.</li>
+            <li>Detection engineering: use-case building, tuning, false-positive reduction, and KPI reporting for leadership.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color:var(--neon); margin-bottom:.6rem;">Vulnerability Management + VAPT</h3>
+          <ul style="padding-left:1.2rem; line-height:1.85;">
+            <li>Qualys vulnerability management integration for patch compliance tracking and remediation workflow linkage.</li>
+            <li>Proactive CVE response for enterprise fleets (prioritization, rollout strategy, validation, and reporting).</li>
+            <li>Penetration testing process setup aligned to MITRE ATT&CK + OWASP (Web/LLM), including remediation verification.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color:var(--neon); margin-bottom:.6rem;">Incident Response + Security Enablement</h3>
+          <ul style="padding-left:1.2rem; line-height:1.85;">
+            <li>IR planning, runbooks, and recovery support (containment → eradication → lessons learned).</li>
+            <li>Security awareness enablement including hands-on CTF-style training (phishing analysis + incident handling + SOC readiness).</li>
+            <li>Operational integrations using Microsoft Graph API, Log Analytics, and security telemetry pipelines.</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <h3 style="color: #0ef;">Security Frameworks & Standards</h3>
-      <div class="skills-grid">
-        <span>MITRE ATT&CK</span><span>OWASP (LLM & Web)</span><span>NIST</span><span>ISO 27001</span>
+      <div class="card" style="margin-top:1.2rem;">
+        <h3 style="color:var(--neon); margin-bottom:.6rem;">AI Security (LLM, Copilots, AI Integrations)</h3>
+        <ul style="padding-left:1.2rem; line-height:1.85;">
+          <li>Threat modeling + abuse-case mapping for AI features (prompt injection, jailbreaks, data leakage, model misuse, supply-chain risk).</li>
+          <li>LLM security testing plan: prompt-injection test cases, RAG data-exfil scenarios, tool/function-call abuse validation, guardrail verification.</li>
+          <li>AI access controls: identity-first design (Entra ID), least privilege for apps/services, secrets handling, and audit-ready logging.</li>
+          <li>AI monitoring: telemetry requirements, alerting strategy, incident playbooks, and feedback loop for recurring patterns.</li>
+        </ul>
+
+        <h3 style="color:var(--neon); margin:.9rem 0 .6rem;">AI Security Compliance & Governance</h3>
+        <ul style="padding-left:1.2rem; line-height:1.85;">
+          <li>Control mapping for AI systems against NIST/ISO-aligned practices (access control, logging, data handling, change management).</li>
+          <li>Data protection for AI: classification approach, DLP guardrails (Purview), retention guidance, and limiting sensitive data in prompts.</li>
+          <li>AI risk register support: risk statements, control owners, evidence plan, and periodic review cadence.</li>
+          <li>Audit evidence readiness for SOC 2 / PCI / GDPR-aligned reviews: architecture docs, security decisions, monitoring coverage.</li>
+        </ul>
       </div>
-    </div>
+    </section>
 
-    <div>
-      <h3 style="color: #0ef;">Security Audits & Compliance</h3>
-      <div class="skills-grid">
-        <span>GDPR</span><span>SOC 2</span><span>PCI DSS</span>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="card">
+        <h3 style="color:var(--neon);">Technologies and Domains</h3>
+        <div class="skills-grid">
+          <span>VAPT</span><span>EDR</span><span>XDR</span><span>DLP</span>
+          <span>Email Security</span><span>Endpoint Security</span><span>Web Security</span><span>Cloud Security</span>
+          <span>SIEM</span><span>SOAR</span><span>Threat Hunting</span><span>Incident Response</span>
+        </div>
+
+        <h3 style="color:var(--neon); margin-top:1.25rem;">Programming, Scripting & OS</h3>
+        <div class="skills-grid">
+          <span>Python</span><span>Bash</span><span>PowerShell</span><span>SQL</span>
+          <span>KQL</span><span>Windows</span><span>macOS</span><span>Linux</span>
+        </div>
+
+        <h3 style="color:var(--neon); margin-top:1.25rem;">Frameworks & Standards</h3>
+        <div class="skills-grid">
+          <span>MITRE ATT&CK</span><span>OWASP (Web/LLM)</span><span>NIST</span><span>ISO Standards</span><span>CIS Controls</span>
+        </div>
+
+        <h3 style="color:var(--neon); margin-top:1.25rem;">Compliance</h3>
+        <div class="skills-grid">
+          <span>GDPR</span><span>SOC 2</span><span>PCI DSS</span>
+        </div>
       </div>
-    </div>
+    </section>
 
-   
-  </div>
-</section>
+    <!-- TOOLS -->
+    <section id="tools">
+      <h2>Tools</h2>
 
+      <div class="card">
+        <h3 style="color:var(--neon);">OEM (Hands-on)</h3>
+        <div class="skills-grid">
+          <!-- Microsoft Stack -->
+          <span>Microsoft Defender for Endpoint</span>
+          <span>Microsoft 365 Security</span>
+          <span>Intune</span>
+          <span>Azure</span>
+          <span>Entra ID</span>
+          <span>Microsoft Sentinel</span>
+          <span>Microsoft Purview</span>
 
+          <!-- EDR / XDR -->
+          <span>CrowdStrike Falcon</span>
+          <span>Palo Alto Cortex</span>
+          <span>Trend Micro</span>
+          <span>Sophos</span>
+          <span>McAfee</span>
 
-    
+          <!-- SIEM / SOAR -->
+          <span>Splunk</span>
+          <span>IBM QRadar</span>
+          <span>Securonix</span>
 
-<section id="experience">
-  <h2>Experience</h2>
+          <!-- Vulnerability Management -->
+          <span>Qualys</span>
+          <span>Nessus</span>
+          <span>Rapid7</span>
 
-  <div class="job" style="margin-bottom: 3rem;">
-    <h3>ProNoesis LLC — Cybersecurity Consultant | Cybersecurity Engineer</h3>
-    <p><strong>Remote, USA | Jan 2024 – Present</strong></p>
-    <p><em>OEM: Microsoft Defender for Endpoint, 365, Intune, Purview, Sentinel, Azure, SharePoint | JAMF | Splunk</em></p>
-    <ul style="margin-top: 1rem; line-height: 1.7;">
-      <li>Implemented Microsoft Defender AV and EDR across 5,000 endpoints (macOS, Windows, Linux), improving security posture and EDR efficiency by 10%.</li>
-      <li>Optimized Defender policies aligned with MITRE ATT&CK, enhancing threat detection and response times by 5%.</li>
-      <li>Led IR using Microsoft Sentinel and Splunk, improving overall posture and reducing incident recurrence by 15%.</li>
-      <li>Created and refined incident playbooks with Splunk & Sentinel, boosting response time by 20%.</li>
-      <li>Enhanced EDR effectiveness with Defender and CrowdStrike collaboration, raising security by 10%.</li>
-      <li>Managed DLP with Microsoft Purview, ensuring data protection and compliance with NIST/PCI DSS.</li>
-      <li>Automated workflows using Logic Apps and PowerShell, reducing manual security efforts by 25%.</li>
-      <li>Developed custom dashboards and reports in Splunk, improving visibility by 10% and providing insights.</li>
-      <li>Maintained pentest procedures (MITRE, OWASP), reducing vulnerabilities by 20%.</li>
-    </ul>
-  </div>
+          <!-- Email / Web / DLP -->
+          <span>Proofpoint</span>
+          <span>Zscaler</span>
 
-  <div class="job" style="margin-bottom: 3rem;">
-    <h3>Black Box — Technical Consultant Cybersecurity | Engineer | Support Engineer</h3>
-    <p><strong>Remote | Sep 2019 – Dec 2021</strong></p>
-    <p><em>OEM: Trend Micro | Sophos | CrowdStrike | Splunk | IBM Q-Radar | McAfee | Palo Alto Cortex | Proofpoint | AWS | Qualys</em></p>
-    <ul style="margin-top: 1rem; line-height: 1.7;">
-      <li>Delivered cybersecurity solutions for 10+ clients, protecting 200,000+ endpoints and reducing threats by 15% with Splunk and IBM Q-Radar integration.</li>
-      <li>Architected solutions (Email, Web, MDM, DLP, Encryption) using Intune, Proofpoint, and Splunk, improving threat detection by 15%.</li>
-      <li>Built hybrid infrastructure (SaaS/on-prem) using AWS & Azure, boosting log analysis and detection by 10%.</li>
-      <li>Managed endpoint/email/web security tools from Palo Alto & Proofpoint to enhance enterprise protection.</li>
-      <li>Resolved escalations via ServiceNow and Splunk with 100% critical issue resolution rate.</li>
-      <li>Automated IR with SOAR platforms (Phantom, XSOAR), improving handling efficiency by 25%.</li>
-      <li>Executed agent deployments via AD/manual methods with 100% success.</li>
-      <li>Configured Proofpoint + Defender for Office 365 with AI/ML to reduce phishing by 30% and implemented DMARC, DKIM, SPF for 4% posture improvement.</li>
-      <li>Implemented IAM, MFA, encryption, segmentation, and monitoring with AWS CloudWatch & Azure Security Center, cutting detection time by 30%.</li>
-      <li>Led security awareness training to reduce phishing/cyber-attacks by 10%.</li>
-    </ul>
-  </div>
-</section>
+          <!-- Identity & Governance -->
+          <span>Saviynt (IGA)</span>
 
+          <!-- Endpoint & MDM -->
+          <span>Jamf</span>
+          <span>Jamf Protect</span>
 
+          <!-- Education / Filtering -->
+          <span>Lightspeed Systems</span>
 
-    
+          <!-- Cloud -->
+          <span>AWS (EC2, S3, IAM)</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
 
+      <div class="card job">
+        <h3>Detroit Public Schools Community District (DPSCD) — Cybersecurity Architect</h3>
+        <p><strong>United States | June 2025 – Present</strong></p>
+        <p><em>Microsoft (Defender for Endpoint, 365, Intune, Azure, Entra ID) | CrowdStrike | Splunk | Qualys | Lightspeed Systems</em></p>
+        <ul>
+          <li>Improved Microsoft Secure Score by 13% by optimizing Intune, Defender for Endpoint, Conditional Access, and Zero Trust configurations aligned with NIST and CIS Controls.</li>
+          <li>Deployed and managed baseline Intune security policies for 80,000+ users and endpoints across Windows, iPads, and mobile platforms.</li>
+          <li>Implemented CrowdStrike Falcon integration and improved threat detection + response visibility via Splunk dashboards (“One-Stop Incident View”).</li>
+          <li>Built centralized Splunk dashboards to unify telemetry from Defender, CrowdStrike, Intune, and Lightspeed; reduced incident triage time by 40%.</li>
+          <li>Enforced CIS benchmark-aligned policies using Intune Settings Catalog and OMA-URI baselines for consistent endpoint hardening.</li>
+          <li>Integrated Qualys Vulnerability Management for automated patch compliance tracking and remediation workflow linkage.</li>
+          <li>Designed a CTF training program for the Technology Department (phishing analysis, incident handling, SOC readiness).</li>
+          <li>Aligned risk management and investigation workflows using Microsoft Graph API, Log Analytics, and Advanced Hunting (KQL).</li>
+        </ul>
+      </div>
 
+      <div class="card job" style="margin-top:1.2rem;">
+        <h3>ProNoesis — Cybersecurity Consultant | Cybersecurity Engineer</h3>
+        <p><strong>United States | January 2024 – June 2025</strong></p>
+        <p><em>Defender for Endpoint | Microsoft 365 | Intune | Sentinel | Azure | Jamf | Splunk | Cortex</em></p>
+        <ul>
+          <li>Implemented Microsoft Defender AV and EDR across 5,000 endpoints (macOS, Windows, Linux), improving posture and increasing EDR efficiency by 30%.</li>
+          <li>Tuned Defender policies aligned with MITRE ATT&CK over 6–8 months, improving threat detection and response times by 25%.</li>
+          <li>Addressed emerging CVEs across 5,000+ endpoints, ensuring compliance with security standards and reducing exposure window.</li>
+          <li>Built dashboards, reports, and policies tailored to client needs, improving security visibility by 40% with actionable insights.</li>
+          <li>Maintained penetration testing procedures aligned with MITRE ATT&CK and OWASP frameworks, reducing vulnerabilities by 20% in the testing environment.</li>
+          <li>Developed and maintained incident response plans, ensuring consistent recovery outcomes.</li>
+        </ul>
+      </div>
 
+      <div class="card job" style="margin-top:1.2rem;">
+        <h3>University of New Haven — Teaching Assistant (Operating Systems)</h3>
+        <p><strong>West Haven, CT | April 2024 – May 2024</strong></p>
+      </div>
 
-    
+      <div class="card job" style="margin-top:1.2rem;">
+        <h3>University of New Haven — Graduate Teaching Assistant (Small Scale Digital Forensics)</h3>
+        <p><strong>United States | January 2024 – May 2024</strong></p>
+      </div>
 
+      <div class="card job" style="margin-top:1.2rem;">
+        <h3>Black Box — Technical Consultant Cybersecurity | Cybersecurity Engineer | Cybersecurity Support Engineer</h3>
+        <p><strong>September 2019 – December 2021</strong></p>
+        <p><em>Trend Micro | Sophos | CrowdStrike | Splunk | Securonix | IBM QRadar | McAfee | Cisco | Palo Alto | Zscaler</em></p>
+        <ul>
+          <li>Implemented cybersecurity solutions for 10+ clients covering 200,000+ endpoints, improving infrastructure security and reducing threats by 40%.</li>
+          <li>Integrated Email Security, Endpoint Security, XDR/EDR, Endpoint Encryption, MDM, Web Security, and DLP, improving detection and prevention capability by 35%.</li>
+          <li>Provisioned SaaS + on-prem hybrid solutions, improving log analysis and threat detection by 40%.</li>
+          <li>Managed incidents and escalations with a 98% resolution rate; executed agent deployments via AD/manual methods with 100% integration success.</li>
+          <li>Delivered security awareness sessions, reducing phishing-related incidents by 50%.</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="honors-certifications" style="margin-bottom: 3rem;">
-  <h2>Honors & Certifications</h2>
+    <!-- HONORS & CERTIFICATIONS -->
+    <section id="honors-certifications">
+      <h2>Honors & Certifications</h2>
 
-  <div style="margin-bottom: 1.5rem;">
-    <h3 style="color: #0ef;">Honors</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Bypassed MFA of Microsoft</li>
-      <li>CVE-2022-33129, CVE-2022-33130, CVE-2022-33131, CVE-2022-33134</li>
-      <li>CIT Hackathon Winner</li>
-    </ul>
-  </div>
+      <div class="card">
+        <h3 style="color:var(--neon);">Honors</h3>
+        <ul style="padding-left:1.2rem; line-height:1.9; margin-top:.6rem;">
+          <li>Bypassed Microsoft MFA mechanisms (security research)</li>
+          <li>4 CVEs: CVE-2022-33129, CVE-2022-33130, CVE-2022-33131, CVE-2022-33134</li>
+          <li>CIT Hackathon Winner</li>
+        </ul>
 
-  <div>
-    <h3 style="color: #0ef;">Certifications</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>SC-200 | Jamf Security Consultant | Jamf Pro | Jamf Protect</li>
-      <li>Certified Ethical Hacker</li>
-      <li>Certified Web Application Penetration Tester</li>
-      <li>Foundations of Cybersecurity by Google</li>
-    </ul>
-  </div>
-</section>
-<section id="projects" style="margin-bottom: 3rem;">
-  <h2>Projects & Research</h2>
+        <h3 style="color:var(--neon); margin-top:1.2rem;">Latest Certifications</h3>
+        <div class="pill-wrap">
+          <span class="pill">AI for Cybersecurity — Johns Hopkins University (Nov 2025)</span>
+          <span class="pill">Artificial Intelligence on Microsoft Azure — Microsoft (Nov 2025)</span>
+          <span class="pill">Gemini for Security Engineers — Google Cloud Security (Nov 2025)</span>
+          <span class="pill">Generative AI Cybersecurity & Privacy for Leaders — Vanderbilt University (Nov 2025)</span>
+          <span class="pill">Saviynt Ambassador Accreditation (Apr 2025)</span>
+        </div>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #0ef;">Trend Micro Security Projects</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Implemented and managed Apex One as a Service, Email Security Standard, Cloud App Security, EDR, XDR, Endpoint Encryption, and Mobile Device Security.</li>
-      <li>Customized policies from scratch to align with client compliance needs, improving customer satisfaction by 90%.</li>
-      <li>Resolved critical technical issues within 1 hour on average, achieving a 98% customer satisfaction rate.</li>
-    </ul>
-  </div>
+        <h3 style="color:var(--neon); margin-top:1.2rem;">Certifications</h3>
+        <div class="pill-wrap">
+          <span class="pill">SC-200: Microsoft Security Operations Analyst</span>
+          <span class="pill">Jamf Security Consultant</span>
+          <span class="pill">Jamf Pro</span>
+          <span class="pill">Jamf Protect</span>
+          <span class="pill">Certified Ethical Hacker (CEH)</span>
+          <span class="pill">Certified Web Application Penetration Tester</span>
+          <span class="pill">Foundations of Cybersecurity — Google</span>
+        </div>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #0ef;">Sophos Intercept X Endpoint</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Deployed Sophos Intercept X across 100 endpoints after a successful proof of concept (POC).</li>
-      <li>Configured advanced threat detection, optimized endpoint performance, and aligned integration with existing infrastructure.</li>
-    </ul>
-  </div>
+        <h3 style="color:var(--neon); margin-top:1.2rem;">Courses / Workshops</h3>
+        <ul style="padding-left:1.2rem; line-height:1.9; margin-top:.6rem;">
+          <li>Implementing Endpoint Protection by using Microsoft Defender for Endpoint</li>
+          <li>Get started with Azure Advisor</li>
+          <li>Tools of the Trade: Linux and SQL</li>
+          <li>Two Days Workshop on Business Analytics</li>
+          <li>AI Workshop</li>
+          <li>3D GAME AR/VR</li>
+        </ul>
+      </div>
+    </section>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #0ef;">Phish and Spam Detection using AI</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Used Python and ML to create a model that identifies spam/phishing emails by analyzing sender behavior and malicious patterns.</li>
-      <li>Evaluated model performance and refined detection strategies for enhanced precision in real-world scenarios.</li>
-    </ul>
-  </div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects & Research</h2>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #0ef;">Digital Forensics Projects</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Performed digital investigations using Autopsy, SQL, and mobile forensics techniques across multiple evidence sources.</li>
-      <li>Recovered and analyzed critical data from hard drives and drones for forensic case studies and simulations.</li>
-    </ul>
-  </div>
+      <div class="card">
+        <h3 style="color:var(--neon);">Publication</h3>
+        <ul style="padding-left:1.2rem; line-height:1.9; margin-top:.6rem;">
+          <li>
+            Sarcasm Detection & Sentimental analysis of tweets using Support Vector Machine.
+            <a href="https://www.jetir.org/papers/JETIR1904107.pdf" target="_blank" rel="noopener">[Read Paper]</a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-  <div style="margin-bottom: 2rem;">
-    <h3 style="color: #0ef;">Meta AI & MFA Exploits</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Discovered critical flaws in Meta AI and successfully bypassed Microsoft MFA mechanisms.</li>
-    </ul>
-  </div>
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education</h2>
 
-  <div>
-    <h3 style="color: #0ef;">Sarcasm Detection via SVM & NLP</h3>
-    <ul style="padding-left: 1.5rem; line-height: 1.8;">
-      <li>Developed a machine learning model to classify sarcasm in tweets using SVM and NLP.
-        <a href="https://www.jetir.org/papers/JETIR1904107.pdf" target="_blank">[Read Paper]</a></li>
-    </ul>
-  </div>
-</section>
+      <div class="card">
+        <ul style="padding-left:1.2rem; line-height:1.9;">
+          <li><strong>University of New Haven</strong> — Master's degree, Cyber Security (Aug 2022 – May 2024)</li>
+          <li><strong>Universal College of Engineering, Thane</strong> — Bachelor of Engineering, Computer Engineering (2015 – 2019)</li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
 
+      <div class="card">
+        <div class="grid-2" style="gap: 1rem;">
+          <div><strong>Email:</strong><br /><a href="mailto:karandarji18@gmail.com">karandarji18@gmail.com</a></div>
+          <div><strong>Phone:</strong><br />203-747-5006</div>
 
-    
-<section id="education" style="margin-bottom: 3rem;">
-  <h2>Education</h2>
-  <ul style="padding-left: 1.5rem; line-height: 1.7; margin-top: 1rem;">
-    <li><strong>University of New Haven</strong> — MS in Cybersecurity and Networks (May 2024)</li>
-    <li><strong>Universal College of Engineering</strong> — B.Tech in Computer Engineering (May 2019)</li>
-  </ul>
-</section>
+          <div><strong>LinkedIn:</strong><br />
+            <a href="https://www.linkedin.com/in/karandarji18/" target="_blank" rel="noopener">linkedin.com/in/karandarji18</a>
+          </div>
 
+          <div><strong>GitHub:</strong><br />
+            <a href="https://github.com/karandarjishack" target="_blank" rel="noopener">github.com/karandarjishack</a>
+          </div>
 
-    
-
-<section id="contact" style="margin-bottom: 3rem;">
-  <h2>Contact</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-    <div><strong>Email:</strong><br><a href="mailto:karandarji18@gmail.com" target="_blank" style="color:#0ef;">karandarji18@gmail.com</a></div>
-    <div><strong>Phone:</strong><br>203-747-5006</div>
-    <div><strong>LinkedIn:</strong><br><a href="https://linkedin.com/in/karandarji18" target="_blank" style="color:#0ef;">linkedin.com/in/karandarji18</a></div>
-    <div><strong>GitHub:</strong><br><a href="https://github.com/karandarjishack" target="_blank" style="color:#0ef;">github.com/karandarjishack</a></div>
-    <div><strong>Resume:</strong><br><a href="https://drive.google.com/file/d/1A9dL6h5l3tV4sI6LMIUjQZWUzIG19VJ6/view?usp=sharing" target="_blank" style="color:#0ef;">View My Resume</a></div>
-    <div><strong>YouTube:</strong><br><a href="https://www.youtube.com/@allabouthacking4311" target="_blank" style="color:#0ef;">@allabouthacking4311</a></div>
-    <div><strong>Medium:</strong><br><a href="https://medium.com/@karandarjishack" target="_blank" style="color:#0ef;">medium.com/@karandarjishack</a></div>
-  </div>
-</section>
-
-
+          <div><strong>Medium:</strong><br />
+            <a href="https://medium.com/@karandarjishack" target="_blank" rel="noopener">medium.com/@karandarjishack</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-<div style='margin-top: 3rem;'></div>
 
   <footer>
     <p>&copy; 2025 Karan Darji — All rights reserved.</p>
   </footer>
 
   <script>
-    const text = ["Cybersecurity Engineer", "Penetration Tester", "SIEM/SOAR Expert", "Cloud Security Analyst"];
-    let i = 0, j = 0, current = '', isDeleting = false;
-    const el = document.getElementById('typing');
+    const text = [
+      "Cybersecurity Architect",
+      "Security Engineering (Defender • Intune • Splunk)",
+      "AI Security & Governance",
+      "SIEM/SOC Engineering",
+      "Vulnerability Management & VAPT"
+    ];
+    let i = 0, j = 0, current = "", isDeleting = false;
+    const el = document.getElementById("typing");
 
     function type() {
-      if (i < text.length) {
-        if (!isDeleting && j <= text[i].length) {
-          current = text[i].substring(0, j++);
-        } else if (isDeleting && j > 0) {
-          current = text[i].substring(0, j--);
-        } else {
-          isDeleting = !isDeleting;
-          if (!isDeleting) i = (i + 1) % text.length;
-        }
-        el.innerHTML = current + '<span class="cursor">|</span>';
-        setTimeout(type, isDeleting ? 80 : 140);
+      if (!el) return;
+
+      if (!isDeleting && j <= text[i].length) {
+        current = text[i].substring(0, j++);
+      } else if (isDeleting && j > 0) {
+        current = text[i].substring(0, j--);
+      } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) i = (i + 1) % text.length;
       }
+
+      el.innerHTML = current + '<span class="cursor">|</span>';
+      setTimeout(type, isDeleting ? 70 : 120);
     }
     type();
   </script>
