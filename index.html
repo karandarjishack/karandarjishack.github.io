@@ -3,553 +3,1123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karan Darji | Cybersecurity Professional</title>
+  <title>Karan Darji | Cybersecurity Architect</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
   <style>
-    /* ========= Global ========= */
     :root{
-      --bg: #06080b;
-      --bg2:#0b0f16;
-      --card:#0c111a;
-      --border:#1f2a3a;
-      --text:#e7eefc;
-      --muted:#9bb0cc;
-      --neon:#00e5ff;
-      --neon2:#19ff9a;
-      --shadow: 0 0 24px rgba(0, 229, 255, .12);
+      /* Old-money palette (no green) */
+      --obsidian:#07080B;
+      --oxford:#0B1321;
+      --midnight:#0E1A2B;
+
+      --panelTop:#0F1B2A;
+      --panelBot:#0A141F;
+
+      --line:#2A3647;
+      --lineHi:#3E526B;
+
+      --ivory:#F4F0E8;
+      --muted:#C8C1B4;
+      --soft:#A7A196;
+
+      --gold:#C8A25A;
+      --champagne:#E6C98A;
+      --oxblood:#5A1C23;
+      --ruby:#8B2E3B;
+
+      --shadow: 0 22px 70px rgba(0,0,0,.58);
+      --shadowSoft: 0 14px 40px rgba(0,0,0,.48);
+
+      --glowGold: 0 0 34px rgba(200,162,90,.14);
+      --glowRuby: 0 0 30px rgba(139,46,59,.14);
+
+      --radius: 18px;
+      --radius2: 22px;
+
+      --focus: 0 0 0 3px rgba(230,201,138,.26);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Times New Roman", Times, serif;
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(0,229,255,.10), transparent 60%),
-                  radial-gradient(1000px 600px at 85% 20%, rgba(25,255,154,.08), transparent 55%),
-                  linear-gradient(180deg, var(--bg), var(--bg2));
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    a { color: var(--neon); text-decoration: none; }
-    a:hover { color: #fff; }
-
-    /* ========= Header ========= */
-    header {
-      position: relative;
-      padding: 2.25rem 1rem 1.5rem 1rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family:"Times New Roman", Times, serif;
+      color:var(--ivory);
       background:
-        linear-gradient(90deg, rgba(0,229,255,.08), transparent 35%),
-        linear-gradient(270deg, rgba(25,255,154,.06), transparent 35%),
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
+        radial-gradient(1200px 650px at 14% 12%, rgba(230,201,138,.14), transparent 62%),
+        radial-gradient(1200px 650px at 86% 16%, rgba(139,46,59,.14), transparent 60%),
+        radial-gradient(900px 560px at 52% 110%, rgba(90,28,35,.10), transparent 62%),
+        linear-gradient(180deg, var(--obsidian), var(--oxford) 45%, var(--midnight));
+      overflow-x:hidden;
     }
+
+    a{ color:var(--champagne); text-decoration:none; }
+    a:hover{ color:#ffffff; }
+
+    .container{ max-width:1180px; margin:0 auto; padding:0 18px; }
+    section{ padding:78px 0; }
+
+    header{
+      position:relative;
+      border-bottom:1px solid rgba(62,82,107,.58);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.70), rgba(0,0,0,.18)),
+        radial-gradient(1100px 520px at 50% 0%, rgba(230,201,138,.16), transparent 62%),
+        radial-gradient(900px 520px at 84% 0%, rgba(139,46,59,.12), transparent 60%);
+      overflow:hidden;
+    }
+
     header::before{
       content:"";
-      position:absolute;
-      inset:-2px;
+      position:absolute; inset:0;
       background:
-        repeating-linear-gradient(90deg, rgba(0,229,255,.08) 0 1px, transparent 1px 110px),
-        repeating-linear-gradient(0deg, rgba(0,229,255,.05) 0 1px, transparent 1px 70px);
-      opacity:.25;
+        repeating-linear-gradient(90deg, rgba(230,201,138,.06) 0 1px, transparent 1px 120px),
+        repeating-linear-gradient(0deg, rgba(230,201,138,.04) 0 1px, transparent 1px 76px);
+      opacity:.22;
       pointer-events:none;
-      mask-image: radial-gradient(circle at 50% 30%, black 0 55%, transparent 75%);
+      mask-image: radial-gradient(circle at 50% 18%, black 0 58%, transparent 80%);
     }
 
-    .name {
-      font-size: 2.55rem;
-      letter-spacing: 0.5px;
-      color: var(--neon);
-      text-shadow: 0 0 18px rgba(0,229,255,.25);
-    }
-    .subtitle {
-      margin-top: .5rem;
-      font-size: 1.1rem;
-      color: var(--muted);
+    header::after{
+      content:"";
+      position:absolute; top:0; left:0; right:0; height:2px;
+      background: linear-gradient(90deg, transparent, rgba(230,201,138,.78), transparent);
+      opacity:.75;
     }
 
-    .quick-links {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: .8rem;
-      flex-wrap: wrap;
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:20px 0;
+      position:relative;
+      z-index:1;
     }
-    .ql {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .45rem .75rem;
-      background: rgba(12,17,26,.7);
-      border: 1px solid var(--border);
-      border-radius: 999px;
+
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .logo{
+      width:48px; height:48px; border-radius:15px;
+      border:1px solid rgba(230,201,138,.34);
+      background:
+        radial-gradient(circle at 30% 28%, rgba(230,201,138,.26), transparent 56%),
+        radial-gradient(circle at 78% 72%, rgba(139,46,59,.18), transparent 58%),
+        linear-gradient(180deg, rgba(15,27,42,.96), rgba(10,20,31,.96));
+      box-shadow: var(--glowGold);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 180deg, transparent, rgba(230,201,138,.18), transparent);
+      opacity:.72;
+      animation: spin 10s linear infinite;
+      mask-image: radial-gradient(circle, black 0 55%, transparent 72%);
+    }
+    @keyframes spin { to{ transform: rotate(360deg); } }
+
+    .brand-text h1{
+      font-size:1.56rem;
+      letter-spacing:.2px;
+      color:var(--ivory);
+    }
+    .brand-text .role{
+      margin-top:2px;
+      color:var(--muted);
+      font-size:1.04rem;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+    nav a{
+      display:inline-block;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(42,54,71,.0);
+      color:var(--ivory);
+      font-weight:700;
+      font-size:.99rem;
+      transition: all .18s ease;
+      background: transparent;
+    }
+    nav a:hover{
+      border-color: rgba(230,201,138,.42);
+      background: rgba(230,201,138,.10);
+      color:#fff;
+    }
+    nav a:focus{ outline:none; box-shadow: var(--focus); }
+
+    @media (max-width: 920px){
+      .topbar{ flex-direction:column; align-items:flex-start; }
+      nav ul{ justify-content:flex-start; }
+    }
+
+    .surface{
+      border-radius: var(--radius2);
+      border:1px solid rgba(62,82,107,.56);
+      background: linear-gradient(180deg, rgba(15,27,42,.92), rgba(10,20,31,.92));
       box-shadow: var(--shadow);
-      color: var(--text);
-      font-size: .95rem;
+      position:relative;
+      overflow:hidden;
     }
-    .ql i { color: var(--neon); }
+    .surface::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(1000px 360px at 16% 0%, rgba(230,201,138,.16), transparent 64%),
+        radial-gradient(1000px 360px at 86% 0%, rgba(139,46,59,.12), transparent 66%),
+        radial-gradient(900px 380px at 50% 112%, rgba(90,28,35,.10), transparent 66%);
+      opacity:.95;
+      pointer-events:none;
+    }
+    .surface > *{ position:relative; }
 
-    nav { margin-top: 1.2rem; }
-    nav ul {
+    .card{ padding:20px; box-shadow: var(--shadowSoft); }
+    .card h3{
+      font-size:1.28rem;
+      margin-bottom:10px;
+      letter-spacing:.15px;
+      color:var(--champagne);
+      text-shadow: 0 0 18px rgba(230,201,138,.10);
+    }
+    .card p, .card li{
+      color:var(--ivory);
+      line-height:1.90;
+      font-size:1.05rem;
+    }
+    .muted{ color:var(--muted); }
+
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:18px;
+      padding-bottom:14px;
+      border-bottom:1px solid rgba(62,82,107,.60);
+    }
+    .section-title h2{
+      font-size:2.02rem;
+      letter-spacing:.2px;
+      color:var(--champagne);
+      text-shadow: 0 0 20px rgba(230,201,138,.12);
+    }
+    .section-title p{ color:var(--muted); font-size:1.05rem; }
+
+    .hero{ padding:38px 0 56px; position:relative; z-index:1; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns:1fr; }
+    }
+
+    .headline{
+      font-size:2.45rem;
+      line-height:1.14;
+      color:var(--champagne);
+      letter-spacing:.25px;
+    }
+    .subhead{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.82;
+    }
+
+    .chips{ margin-top:16px; display:flex; flex-wrap:wrap; gap:10px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:9px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(62,82,107,.62);
+      background: rgba(7,8,11,.14);
+      color:var(--ivory);
+      font-size:1.0rem;
+    }
+    .chip i{ color: rgba(230,201,138,.95); }
+
+    .cta-row{ margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 13px;
+      border-radius:999px;
+      border:1px solid rgba(62,82,107,.64);
+      background: rgba(7,8,11,.14);
+      color:var(--ivory);
+      font-weight:700;
+      transition: all .18s ease;
+      cursor:pointer;
+    }
+    .btn i{ color:var(--champagne); }
+    .btn:hover{
+      border-color: rgba(230,201,138,.48);
+      background: rgba(230,201,138,.12);
+      transform: translateY(-1px);
+      color:#fff;
+    }
+    .btn:focus{ outline:none; box-shadow: var(--focus); }
+
+    .btn.primary{
+      border-color: rgba(139,46,59,.56);
+      background: linear-gradient(180deg, rgba(139,46,59,.22), rgba(7,8,11,.14));
+      box-shadow: var(--glowRuby);
+    }
+    .btn.primary i{ color: rgba(255,235,200,.95); }
+
+    .stats-card{ padding:18px; display:flex; flex-direction:column; gap:12px; }
+    .stat{
+      border:1px solid rgba(62,82,107,.56);
+      background: rgba(7,8,11,.12);
+      border-radius:16px;
+      padding:12px 12px;
+    }
+    .stat .kpi{
+      font-size:1.7rem;
+      font-weight:700;
+      color: rgba(255,235,200,.92);
+      text-shadow: 0 0 18px rgba(230,201,138,.12);
+      line-height:1.1;
+    }
+    .stat .label{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:1.0rem;
+      line-height:1.55;
+    }
+
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media (max-width: 860px){ .grid-2{ grid-template-columns:1fr; } }
+
+    .list{ padding-left:1.15rem; margin-top:6px; }
+    .list li{ margin-bottom:7px; }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+    .skills-grid span{
+      padding:12px 10px;
+      text-align:center;
+      border-radius:16px;
+      border:1px solid rgba(62,82,107,.58);
+      background: rgba(7,8,11,.12);
+      color: var(--champagne);
+      font-weight:700;
+      box-shadow: var(--glowGold);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .skills-grid span:hover{
+      transform: translateY(-1px);
+      border-color: rgba(139,46,59,.52);
+      background: rgba(139,46,59,.14);
+      box-shadow: var(--glowRuby);
+      color:#FFF7EA;
+    }
+
+    .pill-wrap{ margin-top:12px; }
+    .pill{
+      display:inline-block;
+      padding:8px 11px;
+      border-radius:999px;
+      border:1px solid rgba(62,82,107,.58);
+      background: rgba(7,8,11,.12);
+      color: var(--champagne);
+      font-weight:700;
+      margin:6px 6px 0 0;
+      font-size:1rem;
+      box-shadow: 0 0 22px rgba(230,201,138,.10);
+    }
+
+    /* =========================
+       Mind Map (services-first)
+    ========================== */
+    .mindmap-wrap{ padding:18px; }
+    .mindmap-toolbar{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center; justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .mindmap-note{ color:var(--muted); font-size:1.0rem; line-height:1.6; }
+
+    .mindmap{
+      --connector: rgba(230,201,138,.38);
+      margin-top: 12px;
+      overflow:auto;
+      padding: 10px 6px 12px;
+    }
+    .mindmap ul{
+      padding-left: 26px;
+      margin: 10px 0;
       list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      padding: 0 1rem;
+      position: relative;
     }
-    nav a {
-      color: var(--neon);
-      font-weight: 700;
-      padding: .35rem .6rem;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      transition: all .2s ease;
+    .mindmap ul::before{
+      content:"";
+      position:absolute;
+      top: 0;
+      left: 10px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--connector), transparent);
+      opacity:.9;
+      pointer-events:none;
     }
-    nav a:hover {
-      color: #fff;
-      border-color: rgba(0,229,255,.35);
-      background: rgba(0,229,255,.08);
+    .mindmap li{
+      position: relative;
+      margin: 10px 0;
+      padding-left: 18px;
     }
-
-    /* ========= Layout ========= */
-    main { padding-bottom: 2rem; }
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 1120px;
-      margin: auto;
-    }
-
-    h2 {
-      display: inline-block;
-      margin-bottom: 1rem;
-      padding-bottom: .35rem;
-      border-bottom: 2px solid rgba(0,229,255,.55);
-      color: var(--neon);
-      letter-spacing: .25px;
+    .mindmap li::before{
+      content:"";
+      position:absolute;
+      left: 10px;
+      top: 16px;
+      width: 18px;
+      height: 2px;
+      background: var(--connector);
+      opacity:.9;
+      pointer-events:none;
     }
 
-    .card {
-      background: linear-gradient(180deg, rgba(12,17,26,.86), rgba(10,15,23,.86));
-      border: 1px solid var(--border);
+    .node{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
       border-radius: 14px;
-      padding: 1.25rem 1.25rem;
-      box-shadow: var(--shadow);
+      border: 1px solid rgba(62,82,107,.60);
+      background: rgba(7,8,11,.14);
+      color: var(--ivory);
+      box-shadow: 0 0 22px rgba(230,201,138,.08);
+      user-select:none;
+      cursor:pointer;
+      transition: all .16s ease;
+      max-width: 980px;
     }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
+    .node:hover{
+      border-color: rgba(230,201,138,.48);
+      background: rgba(230,201,138,.10);
+      transform: translateY(-1px);
     }
-    @media (max-width: 860px){
-      .grid-2 { grid-template-columns: 1fr; }
-      .name { font-size: 2.1rem; }
-    }
+    .node:focus{ outline:none; box-shadow: var(--focus); }
 
-    .muted { color: var(--muted); }
-    .lead { line-height: 1.75; font-size: 1.05rem; }
-
-    /* ========= Skills / Tools ========= */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: .85rem;
-      margin-top: .9rem;
-    }
-    .skills-grid span {
-      background: rgba(10,15,23,.85);
-      padding: .9rem .75rem;
-      border: 1px solid rgba(31,42,58,.9);
-      text-align: center;
-      border-radius: 12px;
-      color: var(--neon);
-      font-weight: 700;
-      box-shadow: 0 0 16px rgba(0,229,255,.10);
-    }
-
-    /* ========= Experience ========= */
-    .job { margin-top: 1.2rem; }
-    .job h3 { color: #dff7ff; font-size: 1.25rem; }
-    .job p { margin-top: .35rem; color: var(--muted); }
-    .job em { color: #b9d5ff; }
-    .job ul { margin-top: .85rem; margin-left: 1.3rem; line-height: 1.8; }
-    .job li { margin-bottom: .35rem; }
-
-    /* ========= Pills ========= */
-    .pill-wrap { margin-top: .8rem; }
-    .pill {
-      display: inline-block;
-      padding: .35rem .65rem;
-      border: 1px solid rgba(31,42,58,.95);
+    .node .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 24px;
+      height: 24px;
       border-radius: 999px;
-      background: rgba(12,17,26,.75);
-      color: var(--neon);
-      font-size: .95rem;
-      margin: .25rem .25rem 0 0;
-      box-shadow: 0 0 16px rgba(0,229,255,.10);
+      border: 1px solid rgba(230,201,138,.40);
+      color: var(--champagne);
+      background: rgba(0,0,0,.22);
+      font-size: .9rem;
+      flex: 0 0 auto;
+    }
+    .node .title{
+      font-weight: 700;
+      letter-spacing:.1px;
+      color: var(--champagne);
+    }
+    .node .desc{
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .node.small .title{ color: var(--ivory); }
+    .node.small .desc{ color: var(--soft); }
+
+    .branch.collapsed > ul{ display:none; }
+    .branch > .node .chev{
+      margin-left:auto;
+      color: rgba(230,201,138,.85);
+      opacity:.9;
+      transition: transform .16s ease;
+    }
+    .branch.collapsed > .node .chev{ transform: rotate(-90deg); opacity:.75; }
+
+    .node.root{
+      border-color: rgba(139,46,59,.50);
+      background: linear-gradient(180deg, rgba(139,46,59,.16), rgba(7,8,11,.14));
+      box-shadow: var(--glowRuby);
+    }
+    .node.root .badge{ border-color: rgba(139,46,59,.55); color: #FFF3DF; }
+
+    @media (max-width: 720px){
+      .node{ max-width: 100%; }
+      .mindmap{ padding: 8px 2px 10px; }
     }
 
-    /* ========= Footer ========= */
-    footer {
-      text-align: center;
-      padding: 1.25rem 1rem;
-      border-top: 1px solid var(--border);
-      background: rgba(8,10,14,.65);
-      color: #7f96b3;
-      font-size: .95rem;
+    footer{
+      border-top:1px solid rgba(62,82,107,.58);
+      background: rgba(0,0,0,.26);
+      padding:22px 0;
+      color: var(--muted);
+      text-align:center;
+      font-size:1rem;
     }
 
-    /* ========= Cursor ========= */
-    .cursor { color: var(--neon2); margin-left: 2px; }
+    .cursor{ color: var(--champagne); margin-left: 2px; }
+
+    @media (prefers-reduced-motion: reduce){
+      .logo::after{ animation:none; }
+      .skills-grid span:hover{ transform:none; }
+      .btn:hover{ transform:none; }
+      .node:hover{ transform:none; }
+      html{ scroll-behavior:auto; }
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="name">Karan Darji</div>
-    <div class="subtitle"><span id="typing"></span></div>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-text">
+            <h1>Karan Darji</h1>
+            <div class="role"><span id="typing"></span></div>
+          </div>
+        </div>
 
-    <!-- Website button removed -->
-    <div class="quick-links" aria-label="Quick links">
-      <a class="ql" href="https://www.linkedin.com/in/karandarji18/" target="_blank" rel="noopener">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
-      </a>
-      <a class="ql" href="https://github.com/karandarjishack" target="_blank" rel="noopener">
-        <i class="fa-brands fa-github"></i> GitHub
-      </a>
-      <a class="ql" href="mailto:karandarji18@gmail.com">
-        <i class="fa-solid fa-envelope"></i> Email
-      </a>
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#mindmap">Mind Map</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#honors-certifications">Certifications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="hero-grid">
+          <div class="surface card">
+            <div class="headline">Cybersecurity Architect delivering enterprise defense, SIEM engineering, and AI security governance.</div>
+            <div class="subhead">
+              Microsoft security stack (Defender for Endpoint, Intune, Purview, Sentinel, Azure/Entra ID), Splunk engineering for unified triage,
+              vulnerability management, and incident response operations.
+            </div>
+
+            <div class="chips" aria-label="Core focus areas">
+              <span class="chip"><i class="fa-solid fa-shield-halved"></i> Endpoint & Identity Hardening</span>
+              <span class="chip"><i class="fa-solid fa-magnifying-glass"></i> Threat Hunting & IR</span>
+              <span class="chip"><i class="fa-solid fa-diagram-project"></i> SIEM Engineering</span>
+              <span class="chip"><i class="fa-solid fa-robot"></i> AI Security & Compliance</span>
+            </div>
+
+            <div class="cta-row" aria-label="Primary actions">
+              <a class="btn primary" href="mailto:karandarji18@gmail.com"><i class="fa-solid fa-envelope"></i> Contact</a>
+              <a class="btn" href="https://www.linkedin.com/in/karandarji18/" target="_blank" rel="noopener">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a class="btn" href="https://github.com/karandarjishack" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="surface stats-card" aria-label="Key impact">
+            <div class="stat">
+              <div class="kpi">+13%</div>
+              <div class="label">Microsoft Secure Score uplift through posture + policy optimization</div>
+            </div>
+            <div class="stat">
+              <div class="kpi">80K+</div>
+              <div class="label">Endpoints/users supported via Intune baseline deployment and hardening</div>
+            </div>
+            <div class="stat">
+              <div class="kpi">−40%</div>
+              <div class="label">Triage time reduction via Splunk correlation dashboards</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <nav>
-      <ul>
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#honors-certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main>
     <!-- SUMMARY -->
     <section id="summary">
-      <h2>Professional Summary</h2>
-      <div class="card">
-        <p class="lead">
-          Cybersecurity Architect with hands-on experience across enterprise security engineering, incident response,
-          SIEM/SOAR, endpoint hardening, and vulnerability management. Strong in Microsoft security ecosystem
-          (Defender for Endpoint, Intune, Purview, Sentinel, Azure/Entra ID), CrowdStrike, Splunk, Qualys, Jamf,
-          and security automation. Experienced with MITRE ATT&CK, OWASP (Web/LLM), NIST/ISO-aligned controls,
-          and compliance frameworks including GDPR, SOC 2, and PCI DSS.
-        </p>
-        <p class="lead muted" style="margin-top:.9rem;">
-          Notable: MFA security research, critical AI findings, SEC.gov vulnerability reporting, and 4 CVEs.
-        </p>
+      <div class="container">
+        <div class="section-title">
+          <h2>Professional Summary</h2>
+          <p>Enterprise security engineering • SIEM/SOC • AI security governance</p>
+        </div>
+
+        <div class="surface card">
+          <p>
+            Cybersecurity Architect with hands-on experience across security engineering, incident response, SIEM/SOAR,
+            endpoint hardening, and vulnerability management. Strong in Microsoft ecosystem (Defender for Endpoint, Intune,
+            Purview, Sentinel, Azure/Entra ID), Splunk, Qualys, CrowdStrike, Jamf, and security automation.
+            Experienced with MITRE ATT&CK, OWASP (Web/LLM), NIST/ISO-aligned controls, and compliance frameworks including
+            GDPR, SOC 2, and PCI DSS.
+          </p>
+          <p class="muted" style="margin-top:10px;">
+            Notable: MFA security research, vulnerability reporting, and 4 CVEs.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section id="services">
-      <h2>Services</h2>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3 style="color:var(--neon); margin-bottom:.6rem;">Security Architecture & Hardening (Microsoft + Endpoint)</h3>
-          <ul style="padding-left:1.2rem; line-height:1.85;">
-            <li>Intune baseline design + rollout at scale (Windows/iPad/mobile), compliance enforcement, and hardening via Settings Catalog + OMA-URI.</li>
-            <li>Defender for Endpoint rollout + tuning (AV/EDR) and investigation support using Advanced Hunting (KQL).</li>
-            <li>Zero Trust implementation support: Conditional Access alignment, identity hardening, posture uplift, and Secure Score improvements.</li>
-          </ul>
+      <div class="container">
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Outcomes-focused security delivery</p>
         </div>
 
-        <div class="card">
-          <h3 style="color:var(--neon); margin-bottom:.6rem;">SIEM/SOC Engineering (Splunk + Telemetry Unification)</h3>
-          <ul style="padding-left:1.2rem; line-height:1.85;">
-            <li>Splunk dashboards that unify telemetry from Defender, CrowdStrike, Intune, and web filtering sources for faster investigations.</li>
-            <li>Correlation + alerting (“One-Stop Incident View” style) to reduce triage time and improve SOC efficiency.</li>
-            <li>Detection engineering: use-case building, tuning, false-positive reduction, and KPI reporting for leadership.</li>
-          </ul>
+        <div class="grid-2">
+          <div class="surface card">
+            <h3>Security Architecture & Hardening (Microsoft + Endpoint)</h3>
+            <ul class="list">
+              <li>Intune baseline design + rollout at scale (Windows/iPad/mobile), compliance enforcement, hardening via Settings Catalog + OMA-URI.</li>
+              <li>Defender for Endpoint rollout + tuning (AV/EDR) with investigation support using Advanced Hunting (KQL).</li>
+              <li>Zero Trust alignment: Conditional Access, device compliance, secure configuration standards.</li>
+            </ul>
+          </div>
+
+          <div class="surface card">
+            <h3>SIEM/SOC Engineering (Splunk + Sentinel)</h3>
+            <ul class="list">
+              <li>Splunk dashboards unifying telemetry from Defender, CrowdStrike, Intune, and filtering sources for faster investigations.</li>
+              <li>Correlation + alerting (“One-Stop Incident View”) to reduce triage time and increase SOC efficiency.</li>
+              <li>Detection engineering: use-case design, tuning, false-positive reduction, KPI reporting.</li>
+            </ul>
+          </div>
+
+          <div class="surface card">
+            <h3>Vulnerability Management + VAPT</h3>
+            <ul class="list">
+              <li>Qualys vulnerability workflows: asset coverage, prioritization, remediation governance.</li>
+              <li>Proactive CVE response: risk-based triage, rollout strategy, validation, reporting.</li>
+              <li>Penetration testing aligned to MITRE ATT&CK + OWASP (Web/LLM) with remediation verification.</li>
+            </ul>
+          </div>
+
+          <div class="surface card">
+            <h3>Incident Response + Security Enablement</h3>
+            <ul class="list">
+              <li>IR playbooks and runbooks: containment, eradication, recovery, lessons learned.</li>
+              <li>Security awareness enablement including hands-on CTF training and incident readiness exercises.</li>
+              <li>Security automation using Microsoft Graph, Logic Apps, and workflow-driven operations.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="card">
-          <h3 style="color:var(--neon); margin-bottom:.6rem;">Vulnerability Management + VAPT</h3>
-          <ul style="padding-left:1.2rem; line-height:1.85;">
-            <li>Qualys vulnerability management integration for patch compliance tracking and remediation workflow linkage.</li>
-            <li>Proactive CVE response for enterprise fleets (prioritization, rollout strategy, validation, and reporting).</li>
-            <li>Penetration testing process setup aligned to MITRE ATT&CK + OWASP (Web/LLM), including remediation verification.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 style="color:var(--neon); margin-bottom:.6rem;">Incident Response + Security Enablement</h3>
-          <ul style="padding-left:1.2rem; line-height:1.85;">
-            <li>IR planning, runbooks, and recovery support (containment → eradication → lessons learned).</li>
-            <li>Security awareness enablement including hands-on CTF-style training (phishing analysis + incident handling + SOC readiness).</li>
-            <li>Operational integrations using Microsoft Graph API, Log Analytics, and security telemetry pipelines.</li>
+        <div class="surface card" style="margin-top:14px;">
+          <h3>AI Security + Compliance (LLM, Copilots, AI Integrations)</h3>
+          <ul class="list">
+            <li>AI risk assessment: prompt injection/jailbreaks, data leakage, model misuse, agent/tool abuse, supply-chain.</li>
+            <li>LLM security testing: RAG exfiltration scenarios, tool/function-call abuse, guardrail validation, red-team test cases.</li>
+            <li>AI identity & access: least privilege for apps/services, secrets management, audit logging, evidence readiness.</li>
+            <li>Governance mapping: NIST/ISO-aligned controls with SOC 2 / PCI / GDPR-aligned review artifacts.</li>
+            <li>Compliance documentation: AI use policy, data classification for AI, third-party AI vendor risk reviews, audit-ready checklists.</li>
           </ul>
         </div>
       </div>
+    </section>
 
-      <div class="card" style="margin-top:1.2rem;">
-        <h3 style="color:var(--neon); margin-bottom:.6rem;">AI Security (LLM, Copilots, AI Integrations)</h3>
-        <ul style="padding-left:1.2rem; line-height:1.85;">
-          <li>Threat modeling + abuse-case mapping for AI features (prompt injection, jailbreaks, data leakage, model misuse, supply-chain risk).</li>
-          <li>LLM security testing plan: prompt-injection test cases, RAG data-exfil scenarios, tool/function-call abuse validation, guardrail verification.</li>
-          <li>AI access controls: identity-first design (Entra ID), least privilege for apps/services, secrets handling, and audit-ready logging.</li>
-          <li>AI monitoring: telemetry requirements, alerting strategy, incident playbooks, and feedback loop for recurring patterns.</li>
-        </ul>
+    <!-- MIND MAP (SERVICES-FIRST) -->
+    <section id="mindmap">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mind Map</h2>
+          <p>Service offerings (click any node to expand/collapse)</p>
+        </div>
 
-        <h3 style="color:var(--neon); margin:.9rem 0 .6rem;">AI Security Compliance & Governance</h3>
-        <ul style="padding-left:1.2rem; line-height:1.85;">
-          <li>Control mapping for AI systems against NIST/ISO-aligned practices (access control, logging, data handling, change management).</li>
-          <li>Data protection for AI: classification approach, DLP guardrails (Purview), retention guidance, and limiting sensitive data in prompts.</li>
-          <li>AI risk register support: risk statements, control owners, evidence plan, and periodic review cadence.</li>
-          <li>Audit evidence readiness for SOC 2 / PCI / GDPR-aligned reviews: architecture docs, security decisions, monitoring coverage.</li>
-        </ul>
+        <div class="surface card mindmap-wrap">
+          <div class="mindmap-toolbar">
+            <div class="mindmap-note">
+              Service-first map. Click nodes to expand/collapse. Use buttons to expand/collapse all.
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn" type="button" id="expandAll"><i class="fa-solid fa-plus"></i> Expand All</button>
+              <button class="btn" type="button" id="collapseAll"><i class="fa-solid fa-minus"></i> Collapse All</button>
+            </div>
+          </div>
+
+          <div class="mindmap" role="tree" aria-label="Services mind map">
+            <ul>
+              <li class="branch">
+                <button class="node root" type="button">
+                  <span class="badge"><i class="fa-solid fa-handshake"></i></span>
+                  <span class="title">Services I Provide</span>
+                  <span class="desc">— enterprise cybersecurity + AI security</span>
+                  <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                </button>
+
+                <ul>
+                  <!-- AI Security -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-robot"></i></span>
+                      <span class="title">AI Security & Governance</span>
+                      <span class="desc">LLM risk, controls, audit readiness</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-diagram-project"></i></span>
+                          <span class="title">AI Risk Assessment</span>
+                          <span class="desc">threat model + attack surface</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-bullseye"></i></span><span class="title">Threat modeling</span><span class="desc">agent/tool abuse, RAG, supply chain</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-eye"></i></span><span class="title">Data exposure review</span><span class="desc">PII, secrets, logs, training data</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-shield"></i></span><span class="title">Control design</span><span class="desc">guardrails, monitoring, approvals</span></button></li>
+                        </ul>
+                      </li>
+
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-flask"></i></span>
+                          <span class="title">LLM Security Testing</span>
+                          <span class="desc">red-team style validation</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-bomb"></i></span><span class="title">Prompt injection & jailbreaks</span><span class="desc">policy bypass, tool misuse</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-database"></i></span><span class="title">RAG exfiltration tests</span><span class="desc">context leakage, retrieval abuse</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-link"></i></span><span class="title">Function-call abuse</span><span class="desc">over-permissioned actions</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-clipboard-check"></i></span><span class="title">Guardrail verification</span><span class="desc">evals, safety checks, telemetry</span></button></li>
+                        </ul>
+                      </li>
+
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-scale-balanced"></i></span>
+                          <span class="title">AI Compliance & Documentation</span>
+                          <span class="desc">policies + evidence packages</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-file-signature"></i></span><span class="title">AI usage policy</span><span class="desc">acceptable use, data rules</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-layer-group"></i></span><span class="title">Control mapping</span><span class="desc">NIST/ISO + SOC2/PCI/GDPR alignment</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-user-lock"></i></span><span class="title">Identity & access governance</span><span class="desc">least privilege, secrets, audit logs</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-boxes-stacked"></i></span><span class="title">AI vendor due diligence</span><span class="desc">risk review + contractual controls</span></button></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Enterprise Security Engineering -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-building-shield"></i></span>
+                      <span class="title">Enterprise Security Engineering</span>
+                      <span class="desc">Microsoft-first hardening at scale</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-laptop"></i></span>
+                          <span class="title">Endpoint Hardening</span>
+                          <span class="desc">Defender + Intune baselines</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-shield-halved"></i></span><span class="title">Defender for Endpoint</span><span class="desc">AV/EDR rollout + tuning</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-sliders"></i></span><span class="title">Intune baselines</span><span class="desc">Windows/iPad/mobile compliance</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-lock"></i></span><span class="title">Secure configuration</span><span class="desc">CIS-aligned controls</span></button></li>
+                        </ul>
+                      </li>
+
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-id-card-clip"></i></span>
+                          <span class="title">Identity & Access Security</span>
+                          <span class="desc">Entra ID + governance</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-user-check"></i></span><span class="title">Conditional Access strategy</span><span class="desc">device trust + risk-based rules</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-key"></i></span><span class="title">MFA posture review</span><span class="desc">controls + exploitation-informed fixes</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-diagram-project"></i></span><span class="title">IGA (Saviynt)</span><span class="desc">access reviews + compliance</span></button></li>
+                        </ul>
+                      </li>
+
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-cloud"></i></span>
+                          <span class="title">Cloud Security (Azure)</span>
+                          <span class="desc">logging, identity, posture</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-shield"></i></span><span class="title">Azure control design</span><span class="desc">secure config + monitoring</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-scroll"></i></span><span class="title">Audit evidence readiness</span><span class="desc">controls + reports</span></button></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- SIEM/SOC -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-chart-line"></i></span>
+                      <span class="title">SIEM/SOC Engineering</span>
+                      <span class="desc">Splunk + Microsoft Sentinel</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-table-columns"></i></span>
+                          <span class="title">Dashboards & Visibility</span>
+                          <span class="desc">unified incident view</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-layer-group"></i></span><span class="title">Telemetry correlation</span><span class="desc">Defender, CrowdStrike, Intune, Lightspeed</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-clock"></i></span><span class="title">Triage acceleration</span><span class="desc">reduce noise + speed response</span></button></li>
+                        </ul>
+                      </li>
+
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-bullseye"></i></span>
+                          <span class="title">Detection Engineering</span>
+                          <span class="desc">use cases + tuning</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-filter"></i></span><span class="title">False-positive reduction</span><span class="desc">tune rules + thresholds</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-shield"></i></span><span class="title">MITRE-aligned coverage</span><span class="desc">gap review + improvements</span></button></li>
+                        </ul>
+                      </li>
+
+                      <li class="branch">
+                        <button class="node" type="button">
+                          <span class="badge"><i class="fa-solid fa-person-military-pointing"></i></span>
+                          <span class="title">IR Enablement</span>
+                          <span class="desc">playbooks + training</span>
+                          <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                        </button>
+                        <ul>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-clipboard-list"></i></span><span class="title">IR playbooks</span><span class="desc">containment → recovery</span></button></li>
+                          <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-graduation-cap"></i></span><span class="title">CTF / readiness training</span><span class="desc">hands-on skill building</span></button></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Vulnerability & VAPT -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-bug-slash"></i></span>
+                      <span class="title">Vulnerability Management & VAPT</span>
+                      <span class="desc">Qualys + risk-based remediation</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-triangle-exclamation"></i></span><span class="title">Risk-based prioritization</span><span class="desc">CVE impact + exposure</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="title">Remediation governance</span><span class="desc">tracking + validation</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-crosshairs"></i></span><span class="title">Web/Network testing</span><span class="desc">OWASP-aligned findings</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-brain"></i></span><span class="title">LLM security testing</span><span class="desc">prompt injection + RAG</span></button></li>
+                    </ul>
+                  </li>
+
+                  <!-- Data protection -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-file-shield"></i></span>
+                      <span class="title">Data Protection & Compliance</span>
+                      <span class="desc">Purview + policies + evidence</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-shield"></i></span><span class="title">DLP strategy</span><span class="desc">classification + controls</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-scale-balanced"></i></span><span class="title">Audit readiness</span><span class="desc">SOC 2 / PCI / GDPR evidence</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-lock"></i></span><span class="title">Security policy authoring</span><span class="desc">standards + procedures</span></button></li>
+                    </ul>
+                  </li>
+
+                  <!-- Automation -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-gears"></i></span>
+                      <span class="title">Security Automation</span>
+                      <span class="desc">repeatable operations</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-diagram-project"></i></span><span class="title">Workflow automation</span><span class="desc">Logic Apps + scripts</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-terminal"></i></span><span class="title">Scripted remediation</span><span class="desc">PowerShell/Python/Bash</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-chart-simple"></i></span><span class="title">Automated reporting</span><span class="desc">KPIs + posture metrics</span></button></li>
+                    </ul>
+                  </li>
+
+                  <!-- Delivery -->
+                  <li class="branch">
+                    <button class="node" type="button">
+                      <span class="badge"><i class="fa-solid fa-road"></i></span>
+                      <span class="title">Delivery Options</span>
+                      <span class="desc">engagement formats</span>
+                      <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+                    </button>
+                    <ul>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-clipboard"></i></span><span class="title">Assessment</span><span class="desc">gaps + roadmap + quick wins</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-screwdriver-wrench"></i></span><span class="title">Implementation</span><span class="desc">deploy + harden + integrate</span></button></li>
+                      <li><button class="node small" type="button"><span class="badge"><i class="fa-solid fa-headset"></i></span><span class="title">Ongoing Operations</span><span class="desc">tuning, triage, reporting</span></button></li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
-      <h2>Skills</h2>
-
-      <div class="card">
-        <h3 style="color:var(--neon);">Technologies and Domains</h3>
-        <div class="skills-grid">
-          <span>VAPT</span><span>EDR</span><span>XDR</span><span>DLP</span>
-          <span>Email Security</span><span>Endpoint Security</span><span>Web Security</span><span>Cloud Security</span>
-          <span>SIEM</span><span>SOAR</span><span>Threat Hunting</span><span>Incident Response</span>
+      <div class="container">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Domains, frameworks, and execution</p>
         </div>
 
-        <h3 style="color:var(--neon); margin-top:1.25rem;">Programming, Scripting & OS</h3>
-        <div class="skills-grid">
-          <span>Python</span><span>Bash</span><span>PowerShell</span><span>SQL</span>
-          <span>KQL</span><span>Windows</span><span>macOS</span><span>Linux</span>
-        </div>
+        <div class="surface card">
+          <h3>Technologies and Domains</h3>
+          <div class="skills-grid">
+            <span>VAPT</span><span>EDR</span><span>XDR</span><span>DLP</span>
+            <span>Email Security</span><span>Endpoint Security</span><span>Web Security</span><span>Cloud Security</span>
+            <span>SIEM</span><span>SOAR</span><span>Threat Hunting</span><span>Incident Response</span>
+          </div>
 
-        <h3 style="color:var(--neon); margin-top:1.25rem;">Frameworks & Standards</h3>
-        <div class="skills-grid">
-          <span>MITRE ATT&CK</span><span>OWASP (Web/LLM)</span><span>NIST</span><span>ISO Standards</span><span>CIS Controls</span>
-        </div>
+          <h3 style="margin-top:14px;">Programming, Scripting & OS</h3>
+          <div class="skills-grid">
+            <span>Python</span><span>Bash</span><span>PowerShell</span><span>SQL</span>
+            <span>KQL</span><span>Windows</span><span>macOS</span><span>Linux</span>
+          </div>
 
-        <h3 style="color:var(--neon); margin-top:1.25rem;">Compliance</h3>
-        <div class="skills-grid">
-          <span>GDPR</span><span>SOC 2</span><span>PCI DSS</span>
+          <h3 style="margin-top:14px;">Frameworks & Standards</h3>
+          <div class="skills-grid">
+            <span>MITRE ATT&CK</span><span>OWASP (Web/LLM)</span><span>NIST</span><span>ISO Standards</span><span>CIS Controls</span>
+          </div>
+
+          <h3 style="margin-top:14px;">Compliance</h3>
+          <div class="skills-grid">
+            <span>GDPR</span><span>SOC 2</span><span>PCI DSS</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- TOOLS -->
     <section id="tools">
-      <h2>Tools</h2>
+      <div class="container">
+        <div class="section-title">
+          <h2>Tools</h2>
+          <p>OEM hands-on coverage</p>
+        </div>
 
-      <div class="card">
-        <h3 style="color:var(--neon);">OEM (Hands-on)</h3>
-        <div class="skills-grid">
-          <!-- Microsoft Stack -->
-          <span>Microsoft Defender for Endpoint</span>
-          <span>Microsoft 365 Security</span>
-          <span>Intune</span>
-          <span>Azure</span>
-          <span>Entra ID</span>
-          <span>Microsoft Sentinel</span>
-          <span>Microsoft Purview</span>
+        <div class="surface card">
+          <h3>OEM (Hands-on)</h3>
+          <div class="skills-grid">
+            <span>Microsoft Defender for Endpoint</span>
+            <span>Microsoft 365 Security</span>
+            <span>Intune</span>
+            <span>Azure</span>
+            <span>Entra ID</span>
+            <span>Microsoft Sentinel</span>
+            <span>Microsoft Purview</span>
 
-          <!-- EDR / XDR -->
-          <span>CrowdStrike Falcon</span>
-          <span>Palo Alto Cortex</span>
-          <span>Trend Micro</span>
-          <span>Sophos</span>
-          <span>McAfee</span>
+            <span>CrowdStrike Falcon</span>
+            <span>Palo Alto Cortex</span>
+            <span>Trend Micro</span>
+            <span>Sophos</span>
+            <span>McAfee</span>
 
-          <!-- SIEM / SOAR -->
-          <span>Splunk</span>
-          <span>IBM QRadar</span>
-          <span>Securonix</span>
+            <span>Splunk</span>
+            <span>IBM QRadar</span>
+            <span>Securonix</span>
 
-          <!-- Vulnerability Management -->
-          <span>Qualys</span>
-          <span>Nessus</span>
-          <span>Rapid7</span>
+            <span>Qualys</span>
+            <span>Nessus</span>
+            <span>Rapid7</span>
 
-          <!-- Email / Web / DLP -->
-          <span>Proofpoint</span>
-          <span>Zscaler</span>
+            <span>Proofpoint</span>
+            <span>Zscaler</span>
 
-          <!-- Identity & Governance -->
-          <span>Saviynt (IGA)</span>
+            <span>Saviynt (IGA)</span>
 
-          <!-- Endpoint & MDM -->
-          <span>Jamf</span>
-          <span>Jamf Protect</span>
+            <span>Jamf</span>
+            <span>Jamf Protect</span>
 
-          <!-- Education / Filtering -->
-          <span>Lightspeed Systems</span>
+            <span>Lightspeed Systems</span>
 
-          <!-- Cloud -->
-          <span>AWS (EC2, S3, IAM)</span>
+            <span>AWS (EC2, S3, IAM)</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience">
-      <h2>Experience</h2>
+      <div class="container">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>Impact-driven delivery</p>
+        </div>
 
-      <div class="card job">
-        <h3>Detroit Public Schools Community District (DPSCD) — Cybersecurity Architect</h3>
-        <p><strong>United States | June 2025 – Present</strong></p>
-        <p><em>Microsoft (Defender for Endpoint, 365, Intune, Azure, Entra ID) | CrowdStrike | Splunk | Qualys | Lightspeed Systems</em></p>
-        <ul>
-          <li>Improved Microsoft Secure Score by 13% by optimizing Intune, Defender for Endpoint, Conditional Access, and Zero Trust configurations aligned with NIST and CIS Controls.</li>
-          <li>Deployed and managed baseline Intune security policies for 80,000+ users and endpoints across Windows, iPads, and mobile platforms.</li>
-          <li>Implemented CrowdStrike Falcon integration and improved threat detection + response visibility via Splunk dashboards (“One-Stop Incident View”).</li>
-          <li>Built centralized Splunk dashboards to unify telemetry from Defender, CrowdStrike, Intune, and Lightspeed; reduced incident triage time by 40%.</li>
-          <li>Enforced CIS benchmark-aligned policies using Intune Settings Catalog and OMA-URI baselines for consistent endpoint hardening.</li>
-          <li>Integrated Qualys Vulnerability Management for automated patch compliance tracking and remediation workflow linkage.</li>
-          <li>Designed a CTF training program for the Technology Department (phishing analysis, incident handling, SOC readiness).</li>
-          <li>Aligned risk management and investigation workflows using Microsoft Graph API, Log Analytics, and Advanced Hunting (KQL).</li>
-        </ul>
-      </div>
+        <div class="surface card">
+          <h3>Detroit Public Schools Community District (DPSCD) — Cybersecurity Architect</h3>
+          <p class="muted"><strong>United States | Present</strong></p>
+          <p class="muted"><em>Microsoft (Defender for Endpoint, 365, Intune, Azure, Entra ID) | CrowdStrike | Splunk | Qualys | Lightspeed Systems</em></p>
+          <ul class="list">
+            <li>Improved Microsoft Secure Score by 13% through Intune/Defender configuration improvements and Zero Trust hardening aligned with NIST and CIS.</li>
+            <li>Managed baseline Intune security policy deployment for 80,000+ users/endpoints across Windows, iPads, and mobile.</li>
+            <li>Built centralized Splunk dashboards correlating Defender, CrowdStrike, Intune, and Lightspeed telemetry, reducing triage time by ~40%.</li>
+            <li>Integrated Qualys vulnerability workflows for remediation tracking and compliance evidence.</li>
+            <li>Created security enablement (CTF training + tabletop readiness) to strengthen SOC response.</li>
+          </ul>
+        </div>
 
-      <div class="card job" style="margin-top:1.2rem;">
-        <h3>ProNoesis — Cybersecurity Consultant | Cybersecurity Engineer</h3>
-        <p><strong>United States | January 2024 – June 2025</strong></p>
-        <p><em>Defender for Endpoint | Microsoft 365 | Intune | Sentinel | Azure | Jamf | Splunk | Cortex</em></p>
-        <ul>
-          <li>Implemented Microsoft Defender AV and EDR across 5,000 endpoints (macOS, Windows, Linux), improving posture and increasing EDR efficiency by 30%.</li>
-          <li>Tuned Defender policies aligned with MITRE ATT&CK over 6–8 months, improving threat detection and response times by 25%.</li>
-          <li>Addressed emerging CVEs across 5,000+ endpoints, ensuring compliance with security standards and reducing exposure window.</li>
-          <li>Built dashboards, reports, and policies tailored to client needs, improving security visibility by 40% with actionable insights.</li>
-          <li>Maintained penetration testing procedures aligned with MITRE ATT&CK and OWASP frameworks, reducing vulnerabilities by 20% in the testing environment.</li>
-          <li>Developed and maintained incident response plans, ensuring consistent recovery outcomes.</li>
-        </ul>
-      </div>
+        <div class="surface card" style="margin-top:14px;">
+          <h3>ProNoesis — Cybersecurity Consultant | Cybersecurity Engineer</h3>
+          <p class="muted"><strong>United States | Jan 2024 – Present (per prior resume data)</strong></p>
+          <p class="muted"><em>Defender for Endpoint | Microsoft 365 | Intune | Sentinel | Azure | Jamf | Splunk | Cortex</em></p>
+          <ul class="list">
+            <li>Implemented Defender AV/EDR across 5,000 endpoints (macOS/Windows/Linux), improving posture and EDR efficiency.</li>
+            <li>Tuned detection posture aligned to MITRE ATT&CK; improved response outcomes via SIEM workflows.</li>
+            <li>Supported DLP and governance via Microsoft Purview; built operational dashboards and reporting.</li>
+          </ul>
+        </div>
 
-      <div class="card job" style="margin-top:1.2rem;">
-        <h3>University of New Haven — Teaching Assistant (Operating Systems)</h3>
-        <p><strong>West Haven, CT | April 2024 – May 2024</strong></p>
-      </div>
-
-      <div class="card job" style="margin-top:1.2rem;">
-        <h3>University of New Haven — Graduate Teaching Assistant (Small Scale Digital Forensics)</h3>
-        <p><strong>United States | January 2024 – May 2024</strong></p>
-      </div>
-
-      <div class="card job" style="margin-top:1.2rem;">
-        <h3>Black Box — Technical Consultant Cybersecurity | Cybersecurity Engineer | Cybersecurity Support Engineer</h3>
-        <p><strong>September 2019 – December 2021</strong></p>
-        <p><em>Trend Micro | Sophos | CrowdStrike | Splunk | Securonix | IBM QRadar | McAfee | Cisco | Palo Alto | Zscaler</em></p>
-        <ul>
-          <li>Implemented cybersecurity solutions for 10+ clients covering 200,000+ endpoints, improving infrastructure security and reducing threats by 40%.</li>
-          <li>Integrated Email Security, Endpoint Security, XDR/EDR, Endpoint Encryption, MDM, Web Security, and DLP, improving detection and prevention capability by 35%.</li>
-          <li>Provisioned SaaS + on-prem hybrid solutions, improving log analysis and threat detection by 40%.</li>
-          <li>Managed incidents and escalations with a 98% resolution rate; executed agent deployments via AD/manual methods with 100% integration success.</li>
-          <li>Delivered security awareness sessions, reducing phishing-related incidents by 50%.</li>
-        </ul>
+        <div class="surface card" style="margin-top:14px;">
+          <h3>Black Box — Technical Consultant Cybersecurity | Cybersecurity Engineer | Cybersecurity Support Engineer</h3>
+          <p class="muted"><strong>Sep 2019 – Dec 2021</strong></p>
+          <p class="muted"><em>Trend Micro | Sophos | CrowdStrike | Splunk | Securonix | IBM QRadar | McAfee | Cisco | Palo Alto | Zscaler</em></p>
+          <ul class="list">
+            <li>Delivered cybersecurity solutions for 10+ clients covering 200,000+ endpoints; reduced threats by ~40% across deployments.</li>
+            <li>Engineered integrations for endpoint/email/web/MDM/DLP improving detection and prevention capability.</li>
+            <li>Owned escalations with a ~98% resolution rate; executed deployments with high success and stability.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- HONORS & CERTIFICATIONS -->
+    <!-- CERTIFICATIONS -->
     <section id="honors-certifications">
-      <h2>Honors & Certifications</h2>
-
-      <div class="card">
-        <h3 style="color:var(--neon);">Honors</h3>
-        <ul style="padding-left:1.2rem; line-height:1.9; margin-top:.6rem;">
-          <li>Bypassed Microsoft MFA mechanisms (security research)</li>
-          <li>4 CVEs: CVE-2022-33129, CVE-2022-33130, CVE-2022-33131, CVE-2022-33134</li>
-          <li>CIT Hackathon Winner</li>
-        </ul>
-
-        <h3 style="color:var(--neon); margin-top:1.2rem;">Latest Certifications</h3>
-        <div class="pill-wrap">
-          <span class="pill">AI for Cybersecurity — Johns Hopkins University (Nov 2025)</span>
-          <span class="pill">Artificial Intelligence on Microsoft Azure — Microsoft (Nov 2025)</span>
-          <span class="pill">Gemini for Security Engineers — Google Cloud Security (Nov 2025)</span>
-          <span class="pill">Generative AI Cybersecurity & Privacy for Leaders — Vanderbilt University (Nov 2025)</span>
-          <span class="pill">Saviynt Ambassador Accreditation (Apr 2025)</span>
+      <div class="container">
+        <div class="section-title">
+          <h2>Honors & Certifications</h2>
+          <p>AI security • cloud security • identity governance</p>
         </div>
 
-        <h3 style="color:var(--neon); margin-top:1.2rem;">Certifications</h3>
-        <div class="pill-wrap">
-          <span class="pill">SC-200: Microsoft Security Operations Analyst</span>
-          <span class="pill">Jamf Security Consultant</span>
-          <span class="pill">Jamf Pro</span>
-          <span class="pill">Jamf Protect</span>
-          <span class="pill">Certified Ethical Hacker (CEH)</span>
-          <span class="pill">Certified Web Application Penetration Tester</span>
-          <span class="pill">Foundations of Cybersecurity — Google</span>
-        </div>
+        <div class="surface card">
+          <h3>Honors</h3>
+          <ul class="list">
+            <li>Bypassed Microsoft MFA mechanisms (security research)</li>
+            <li>4 CVEs: CVE-2022-33129, CVE-2022-33130, CVE-2022-33131, CVE-2022-33134</li>
+            <li>CIT Hackathon Winner</li>
+          </ul>
 
-        <h3 style="color:var(--neon); margin-top:1.2rem;">Courses / Workshops</h3>
-        <ul style="padding-left:1.2rem; line-height:1.9; margin-top:.6rem;">
-          <li>Implementing Endpoint Protection by using Microsoft Defender for Endpoint</li>
-          <li>Get started with Azure Advisor</li>
-          <li>Tools of the Trade: Linux and SQL</li>
-          <li>Two Days Workshop on Business Analytics</li>
-          <li>AI Workshop</li>
-          <li>3D GAME AR/VR</li>
-        </ul>
+          <h3 style="margin-top:14px;">Latest Certifications</h3>
+          <div class="pill-wrap">
+            <span class="pill">AI for Cybersecurity — Johns Hopkins University (Nov 2025)</span>
+            <span class="pill">Artificial Intelligence on Microsoft Azure — Microsoft (Nov 2025)</span>
+            <span class="pill">Gemini for Security Engineers — Google Cloud Security (Nov 2025)</span>
+            <span class="pill">Generative AI Cybersecurity & Privacy for Leaders — Vanderbilt University (Nov 2025)</span>
+            <span class="pill">Saviynt Ambassador Accreditation (Apr 2025)</span>
+            <span class="pill">SC-200: Microsoft Security Operations Analyst (Udemy)</span>
+          </div>
+
+          <h3 style="margin-top:14px;">Core Certifications</h3>
+          <div class="pill-wrap">
+            <span class="pill">Jamf Security Consultant</span>
+            <span class="pill">Jamf Pro</span>
+            <span class="pill">Jamf Protect</span>
+            <span class="pill">Certified Ethical Hacker (CEH)</span>
+            <span class="pill">Certified Web Application Penetration Tester</span>
+            <span class="pill">Foundations of Cybersecurity — Google</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects">
-      <h2>Projects & Research</h2>
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects & Research</h2>
+          <p>Selected publication</p>
+        </div>
 
-      <div class="card">
-        <h3 style="color:var(--neon);">Publication</h3>
-        <ul style="padding-left:1.2rem; line-height:1.9; margin-top:.6rem;">
-          <li>
-            Sarcasm Detection & Sentimental analysis of tweets using Support Vector Machine.
-            <a href="https://www.jetir.org/papers/JETIR1904107.pdf" target="_blank" rel="noopener">[Read Paper]</a>
-          </li>
-        </ul>
+        <div class="surface card">
+          <h3>Publication</h3>
+          <ul class="list">
+            <li>
+              Sarcasm Detection & Sentimental analysis of tweets using Support Vector Machine.
+              <a href="https://www.jetir.org/papers/JETIR1904107.pdf" target="_blank" rel="noopener">[Read Paper]</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- EDUCATION -->
     <section id="education">
-      <h2>Education</h2>
+      <div class="container">
+        <div class="section-title">
+          <h2>Education</h2>
+          <p>Academic foundation</p>
+        </div>
 
-      <div class="card">
-        <ul style="padding-left:1.2rem; line-height:1.9;">
-          <li><strong>University of New Haven</strong> — Master's degree, Cyber Security (Aug 2022 – May 2024)</li>
-          <li><strong>Universal College of Engineering, Thane</strong> — Bachelor of Engineering, Computer Engineering (2015 – 2019)</li>
-        </ul>
+        <div class="surface card">
+          <ul class="list">
+            <li><strong>University of New Haven</strong> — MS in Cybersecurity and Networks (May 2024)</li>
+            <li><strong>Universal College of Engineering</strong> — B.Tech / BE in Computer Engineering (May 2019)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Contact</h2>
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Direct links</p>
+        </div>
 
-      <div class="card">
-        <div class="grid-2" style="gap: 1rem;">
-          <div><strong>Email:</strong><br /><a href="mailto:karandarji18@gmail.com">karandarji18@gmail.com</a></div>
-          <div><strong>Phone:</strong><br />203-747-5006</div>
-
-          <div><strong>LinkedIn:</strong><br />
-            <a href="https://www.linkedin.com/in/karandarji18/" target="_blank" rel="noopener">linkedin.com/in/karandarji18</a>
+        <div class="grid-2">
+          <div class="surface card">
+            <h3>Reach me</h3>
+            <ul class="list">
+              <li><strong>Email:</strong> <a href="mailto:karandarji18@gmail.com">karandarji18@gmail.com</a></li>
+              <li><strong>Phone:</strong> 203-747-5006</li>
+            </ul>
           </div>
 
-          <div><strong>GitHub:</strong><br />
-            <a href="https://github.com/karandarjishack" target="_blank" rel="noopener">github.com/karandarjishack</a>
-          </div>
-
-          <div><strong>Medium:</strong><br />
-            <a href="https://medium.com/@karandarjishack" target="_blank" rel="noopener">medium.com/@karandarjishack</a>
+          <div class="surface card">
+            <h3>Profiles</h3>
+            <ul class="list">
+              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karandarji18/" target="_blank" rel="noopener">linkedin.com/in/karandarji18</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/karandarjishack" target="_blank" rel="noopener">github.com/karandarjishack</a></li>
+              <li><strong>Website:</strong> <a href="https://karandarjishack.github.io/" target="_blank" rel="noopener">karandarjishack.github.io</a></li>
+              <li><strong>Medium:</strong> <a href="https://medium.com/@karandarjishack" target="_blank" rel="noopener">medium.com/@karandarjishack</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -557,13 +1127,16 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Karan Darji — All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 Karan Darji — All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
+    // Typing
     const text = [
       "Cybersecurity Architect",
-      "Security Engineering (Defender • Intune • Splunk)",
+      "Enterprise Security Engineering (Defender • Intune • Splunk)",
       "AI Security & Governance",
       "SIEM/SOC Engineering",
       "Vulnerability Management & VAPT"
@@ -574,19 +1147,56 @@
     function type() {
       if (!el) return;
 
-      if (!isDeleting && j <= text[i].length) {
-        current = text[i].substring(0, j++);
-      } else if (isDeleting && j > 0) {
-        current = text[i].substring(0, j--);
-      } else {
-        isDeleting = !isDeleting;
-        if (!isDeleting) i = (i + 1) % text.length;
-      }
+      if (!isDeleting && j <= text[i].length) current = text[i].substring(0, j++);
+      else if (isDeleting && j > 0) current = text[i].substring(0, j--);
+      else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % text.length; }
 
       el.innerHTML = current + '<span class="cursor">|</span>';
       setTimeout(type, isDeleting ? 70 : 120);
     }
     type();
+
+    // Mindmap expand/collapse (service-first defaults)
+    const branches = Array.from(document.querySelectorAll(".mindmap .branch"));
+
+    function refreshAria() {
+      branches.forEach(b => {
+        const btn = b.querySelector(":scope > .node");
+        if (!btn) return;
+        btn.setAttribute("aria-expanded", String(!b.classList.contains("collapsed")));
+      });
+    }
+
+    function setCollapsedAll(collapsed){
+      branches.forEach(b => collapsed ? b.classList.add("collapsed") : b.classList.remove("collapsed"));
+      refreshAria();
+    }
+
+    // Default: root expanded + top-level categories expanded; details collapsed
+    setCollapsedAll(true);
+    const root = document.querySelector(".mindmap > ul > li.branch");
+    if (root) root.classList.remove("collapsed");
+
+    const topCategories = document.querySelectorAll(".mindmap > ul > li.branch > ul > li.branch");
+    topCategories.forEach(x => x.classList.remove("collapsed"));
+
+    branches.forEach(branch => {
+      const btn = branch.querySelector(":scope > .node");
+      if (!btn) return;
+
+      btn.addEventListener("click", () => {
+        branch.classList.toggle("collapsed");
+        refreshAria();
+      });
+    });
+
+    refreshAria();
+
+    const expandAllBtn = document.getElementById("expandAll");
+    const collapseAllBtn = document.getElementById("collapseAll");
+
+    if (expandAllBtn) expandAllBtn.addEventListener("click", () => setCollapsedAll(false));
+    if (collapseAllBtn) collapseAllBtn.addEventListener("click", () => setCollapsedAll(true));
   </script>
 </body>
 </html>
