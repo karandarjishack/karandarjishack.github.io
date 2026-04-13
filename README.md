@@ -1,112 +1,180 @@
-# Karan Darji Portfolio
+# Karan Darji | Cybersecurity Architect Portfolio
 
-Professional portfolio website for Karan Darji, a cybersecurity architect focused on Zero Trust, SIEM/SOC engineering, endpoint hardening, and AI security governance.
+[![Live Site](https://img.shields.io/badge/Live%20Site-karandarjishack.github.io-0a192f?style=for-the-badge&logo=githubpages)](https://karandarjishack.github.io/)
+[![HTML5](https://img.shields.io/badge/HTML5-Static%20Site-E34F26?style=for-the-badge&logo=html5&logoColor=white)](./index.html)
+[![CSS3](https://img.shields.io/badge/CSS3-Inline%20Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white)](./index.html)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111111)](./index.html)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?style=for-the-badge&logo=github)](https://karandarjishack.github.io/)
 
-Live site: [https://karandarjishack.github.io/](https://karandarjishack.github.io/)
+Professional portfolio site for **Karan Darji**, a cybersecurity architect focused on **Zero Trust**, **SIEM/SOC engineering**, **endpoint hardening**, **vulnerability research**, and **AI security governance**.
 
-## Overview
+The site is built as a fast, single-page GitHub Pages experience that presents enterprise security work, technical depth, certifications, research, and contact channels in a format suitable for recruiters, hiring managers, consulting prospects, and collaborators.
 
-This repository contains a static personal website built for GitHub Pages. The site presents Karan's professional background, enterprise security experience, technical skills, certifications, selected projects, education, and contact information in a single responsive landing page.
+## Live Website
 
-The current implementation is intentionally lightweight:
+**Production:** [https://karandarjishack.github.io/](https://karandarjishack.github.io/)
 
-- Single-file deployment with `index.html`
-- Inline CSS and JavaScript for fast hosting on GitHub Pages
-- Responsive layout for desktop and mobile
-- SEO-ready metadata, Open Graph tags, and structured data
-- Interactive UI elements including animated counters, section reveals, typed hero text, card tilt, and particle canvas effects
+## Highlights
 
-## Site Sections
+- Showcases security work spanning **285K+ endpoints secured**
+- Highlights a **17% Microsoft Secure Score lift**
+- Includes **4 Microsoft CVEs** from independent security research
+- Features a **40% SOC triage time reduction** outcome
+- Covers **AI security governance** across Claude, OpenAI, Gemini, and related enterprise workflows
 
-- Hero introduction and value proposition
-- About and cybersecurity focus areas
-- Professional experience
-- Technical skills
-- Certifications
+## What This Repository Contains
+
+This repository powers a responsive personal portfolio built for GitHub Pages. It is intentionally lightweight and deployment-friendly:
+
+- **Single-file architecture** with markup, styles, and behavior in `index.html`
+- **Responsive layout** for desktop and mobile
+- **SEO-ready metadata** including canonical URL, Open Graph tags, Twitter card content, and JSON-LD structured data
+- **Interactive frontend behavior** without a framework or build system
+- **Direct GitHub Pages deployment** from the `main` branch
+
+## Portfolio Sections
+
+The site is organized into the following sections:
+
+- Hero and professional positioning
+- About and core cybersecurity domains
+- Experience across enterprise security roles
+- Skills and tooling
+- Certifications and honors
 - Projects and research
 - Education
-- Contact and external profile links
+- Contact and external profiles
 
-## Tech Stack
+## Experience and Subject Areas Featured
+
+The portfolio emphasizes work across:
+
+- Enterprise security architecture
+- Zero Trust identity and endpoint controls
+- Microsoft security stack: Defender, Sentinel, Intune, Entra ID, Purview
+- SIEM and SOC engineering with Splunk, Sentinel, and cross-platform telemetry
+- Endpoint, mobile, email, and web security
+- Vulnerability management and VAPT
+- Cloud security across Azure and AWS
+- AI governance, prompt injection risk, and enterprise LLM security controls
+
+## UX and Technical Features
+
+- Animated hero introduction with rotating typed statements
+- Interactive particle canvas in the hero section
+- Scroll-triggered reveal animations
+- Animated achievement counters
+- Tabbed experience section
+- Hover tilt effects for certification and project cards
+- Responsive desktop and mobile navigation
+- Accessibility touches including skip link support and semantic landmarks
+
+## Stack
 
 - HTML5
 - CSS3
 - Vanilla JavaScript
 - Font Awesome
 - Google Fonts
-- GitHub Pages
 - HubSpot embed script
+- GitHub Pages
 
-## Project Structure
+## Repository Structure
 
 ```text
 .
 ├── index.html
-├── README.md
-└── Karan-Darji-Resume.pdf
+└── README.md
 ```
 
-Notes:
+## Local Development
 
-- `index.html` contains the full site markup, styling, and behavior.
-- `Karan-Darji-Resume.pdf` exists in the local project folder, but the live GitHub Pages repo may not include it unless it is explicitly added and linked.
+No build tooling is required.
 
-## Running Locally
+Open the file directly in a browser:
 
-Because this is a static site, there is no build step.
+```bash
+open index.html
+```
 
-Open `index.html` directly in a browser, or run a simple local server:
+Or serve it locally:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then visit:
+
+```text
+http://localhost:8000
+```
 
 ## Deployment
 
-This site is deployed through GitHub Pages from the `main` branch of:
+This portfolio is published from:
 
-`karandarjishack/karandarjishack.github.io`
+```text
+karandarjishack/karandarjishack.github.io
+```
 
-Any committed changes pushed to `main` are published to:
+GitHub Pages deploys the site from the `main` branch. Any committed change pushed to `main` becomes the live site after GitHub Pages finishes publishing.
 
-[https://karandarjishack.github.io/](https://karandarjishack.github.io/)
+## Editing Guide
 
-## Maintenance Notes
+Most changes happen in `index.html`. Key update areas:
 
-When updating the site, review these items:
+- **Branding and metadata**
+  - `<title>`
+  - meta description
+  - canonical URL
+  - Open Graph and Twitter metadata
+  - JSON-LD person schema
 
-- Profile copy in the hero, about, experience, and project sections
-- Contact links for GitHub, LinkedIn, Medium, and email
-- SEO metadata in the `<head>` section
-- JSON-LD structured data
-- HubSpot script source and account ID
-- GitHub Pages canonical URL
+- **Content sections**
+  - `#hero`
+  - `#about`
+  - `#experience`
+  - `#skills`
+  - `#certifications`
+  - `#projects`
+  - `#education`
+  - `#contact`
 
-## Customization
+- **Styling**
+  - CSS variables near the top of the file control colors, spacing, type scale, and motion behavior
 
-Common edits are all handled in `index.html`:
+- **Behavior**
+  - Inline JavaScript near the bottom controls the loader, navigation, counters, animations, mobile menu, tabs, and particle canvas
 
-- Update colors, spacing, and typography in the CSS variables near the top of the file
-- Modify section content directly in the HTML
-- Adjust animations and interactive behavior in the inline JavaScript near the bottom of the file
-- Replace or expand project, certification, and experience entries as needed
+## Maintenance Checklist
 
-## Professional Summary
+Before pushing updates, review:
 
-The portfolio highlights work across:
+- Career summary and metrics
+- Experience bullets and project descriptions
+- Certification list and dates
+- Contact information and social links
+- SEO metadata
+- HubSpot script source
+- External links for publications, CVEs, LinkedIn, GitHub, and Medium
 
-- Enterprise security architecture
-- SIEM and SOC engineering
-- Zero Trust implementation
-- Endpoint security at scale
-- Vulnerability research and responsible disclosure
-- AI security governance aligned to frameworks such as NIST and OWASP LLM Top 10
+## Why This Approach
+
+This site uses a framework-free, single-file setup on purpose:
+
+- minimal hosting overhead
+- fast deployment through GitHub Pages
+- easy edits without a build pipeline
+- strong control over markup, animation, and metadata
+- simple long-term maintenance for a personal brand site
 
 ## Contact
 
-- Email: `karandarji18@gmail.com`
+- Email: [karandarji18@gmail.com](mailto:karandarji18@gmail.com)
 - LinkedIn: [linkedin.com/in/karandarji18](https://www.linkedin.com/in/karandarji18/)
 - GitHub: [github.com/karandarjishack](https://github.com/karandarjishack)
 - Medium: [medium.com/@karandarjishack](https://medium.com/@karandarjishack)
+
+## License
+
+This repository contains personal portfolio content and branding for Karan Darji. Reuse of the written content, identity, or presentation without permission is not intended.
